@@ -12,7 +12,7 @@ import com.naruto.b_pocketnewlol.base.BaseFragment;
  * A simple {@link Fragment} subclass.
  */
 public class FriendFragment extends BaseFragment {
-
+//我是狂少!!!!!
 
     @Override
     public int setLayout() {
