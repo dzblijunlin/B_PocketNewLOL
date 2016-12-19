@@ -10,6 +10,7 @@ import com.naruto.b_pocketnewlol.base.BaseFragment;
 
 /**
  * A simple {@link Fragment} subclass.
+ * kevin 哈哈
  */
 public class NewsFragment extends BaseFragment {
 
