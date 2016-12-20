@@ -3,14 +3,17 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:gravity="center_vertical">
+    android:gravity="center_vertical"
+    android:background="#fff"
+    android:layout_margin="5dp">
 
     <ImageView
         android:id="@+id/img_item_news_cycle"
         android:src="@mipmap/ic_launcher"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"/>
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_margin="5dp"
+        android:scaleType="fitXY"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -19,7 +22,7 @@
         <TextView
             android:id="@+id/title_item_news_cycle"
             android:textColor="#000"
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:text="张萌大神图:S7版本吸血鬼教学"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
