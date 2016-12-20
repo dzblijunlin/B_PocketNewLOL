@@ -35,7 +35,7 @@
             android:checked="true"
             android:drawableTop="@drawable/selector_news_bg"
             android:gravity="center"
-            android:text="咨询"
+            android:text="资讯"
             android:textSize="10sp"
             android:textColor="@color/color"
 
