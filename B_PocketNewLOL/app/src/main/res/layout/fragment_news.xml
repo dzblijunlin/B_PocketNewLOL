@@ -5,17 +5,17 @@
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@null">
 
 
         <android.support.design.widget.CollapsingToolbarLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:collapsedTitleGravity="center"
-            app:contentScrim="#e6a01f"
-            app:layout_scrollFlags="scroll|enterAlways"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
             >
-
+            <!--app:contentScrim="#e6a01f"-->
             <com.youth.banner.Banner
                 android:id="@+id/banner"
                 android:layout_width="match_parent"
