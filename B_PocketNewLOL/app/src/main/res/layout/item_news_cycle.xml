@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:background="#fff"
+    android:layout_margin="5dp">
+
+    <ImageView
+        android:id="@+id/img_item_news_cycle"
+        android:src="@mipmap/ic_launcher"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_margin="5dp"
+        android:scaleType="fitXY"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/title_item_news_cycle"
+            android:textColor="#000"
+            android:textSize="15sp"
+            android:text="张萌大神图:S7版本吸血鬼教学"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/summary_item_news_cycle"
+            android:layout_marginTop="5dp"
+            android:text="本期带给大家的是猩红收割者.副歌朗明哥玩法技巧啦啦"
+            android:layout_below="@+id/title_item_news_cycle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+        <TextView
+            android:id="@+id/date_item_news_cycle"
+            android:layout_marginTop="5dp"
+            android:text="10月23日 16:14"
+            android:layout_below="@+id/summary_item_news_cycle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/pv_item_news_cycle"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:text="25.5"
+            android:layout_toRightOf="@+id/date_item_news_cycle"
+            android:layout_below="@+id/summary_item_news_cycle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:text="万阅"
+            android:layout_marginTop="5dp"
+            android:textColor="#fabc64"
+            android:layout_toRightOf="@+id/pv_item_news_cycle"
+            android:layout_below="@+id/summary_item_news_cycle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+    </RelativeLayout>
+
+</LinearLayout>
