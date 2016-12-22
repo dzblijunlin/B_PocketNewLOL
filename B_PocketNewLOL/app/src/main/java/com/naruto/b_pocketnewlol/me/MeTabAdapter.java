@@ -21,7 +21,7 @@ import java.util.ArrayList;
 public class MeTabAdapter extends FragmentPagerAdapter {
 
     private ArrayList<Fragment> fragments;
-    private String [] tabTitles = new String[]{"精彩推荐","全部直播","英雄联盟","炉石传说","熊猫星秀"};
+    private String [] tabTitles = new String[]{"精彩推荐","全部直播","英雄联盟","炉石传说","守望先锋"};
     private int [] imageResId = {R.drawable.selector_recommend_tab
             ,R.drawable.selector_all_live_tab
             ,R.drawable.selector_lol_tab

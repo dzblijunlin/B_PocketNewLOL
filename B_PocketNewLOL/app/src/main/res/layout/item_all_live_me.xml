@@ -3,8 +3,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#fff"
-    >
+    android:background="@color/color_ff">
 
 
     <RelativeLayout
@@ -12,32 +11,36 @@
         android:layout_height="100dp"
         android:padding="5dp"
         >
-
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="最强王者"
+            android:layout_alignParentRight="true"
+            android:background="@mipmap/ic_launcher"/>
         <ImageView
-            android:id="@+id/item_details_img"
+            android:id="@+id/item_all_img"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="fitXY"
             android:src="@mipmap/ic_launcher"/>
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="15dp"
-            android:layout_alignParentBottom="true"
-            android:background="#000"
-            android:alpha="0.5"
-            >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:layout_alignParentBottom="true"
+        android:background="#000"
+        android:alpha="0.5"
+        >
         <TextView
-            android:id="@+id/item_details_name"
+            android:id="@+id/item_all_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="爷大干"
             android:textSize="10sp"
-            android:textColor="#fff"
+            android:textColor="@color/color_ff"
             android:paddingLeft="5dp"
             android:layout_alignParentBottom="true"
             />
-        </RelativeLayout>
-
+    </RelativeLayout>
     </RelativeLayout>
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -45,14 +48,14 @@
         android:layout_margin="5dp"
         >
         <TextView
-            android:id="@+id/item_details_nickName"
+            android:id="@+id/item_all_nickName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="爷大干"
             android:textColor="#000"
             />
         <TextView
-            android:id="@+id/item_live_details_person_num"
+            android:id="@+id/item_live_all_person_num"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingRight="5dp"
@@ -60,7 +63,7 @@
             android:text="16.1万"/>
 
         <ImageView
-            android:layout_toLeftOf="@id/item_live_details_person_num"
+            android:layout_toLeftOf="@id/item_live_all_person_num"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"

@@ -14,6 +14,7 @@ import com.naruto.b_pocketnewlol.base.BaseFragment;
 import com.naruto.b_pocketnewlol.entity.NetTool;
 import com.naruto.b_pocketnewlol.entity.onHttpCallBack;
 import com.naruto.b_pocketnewlol.news.GlideImageLoader;
+import com.naruto.b_pocketnewlol.tools.UrlTools;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.Transformer;
@@ -50,26 +51,29 @@ public class MeFragment extends BaseFragment {
     public void initData() {
         datas = new ArrayList<>();
         datas.add(new MeLiveFragment());
-        datas.add(new MeLiveFragment());
-        datas.add(new MeLiveFragment());
-        datas.add(new MeLiveFragment());
-        datas.add(new MeLiveFragment());
+        datas.add(new MeAllLiveFragment());
+
+        datas.add(MeLolFragment.newInstance(UrlTools.ME_LOL_HEAD , "lol" , UrlTools.ME_LOL_MID , UrlTools.ME_LOL_FOOTER));
+        datas.add(MeLolFragment.newInstance(UrlTools.ME_LOL_HEAD , "hearthstone" , UrlTools.ME_LOL_MID , UrlTools.ME_LOL_FOOTER));
+        datas.add(MeLolFragment.newInstance(UrlTools.ME_LOL_HEAD , "overwatch" , UrlTools.ME_LOL_MID , UrlTools.ME_LOL_FOOTER));
+//        datas.add(MeLolFragment.newInstance(UrlTools.ME_LOL_HEAD , "zhuji" , UrlTools.ME_LOL_MID , UrlTools.ME_LOL_FOOTER));
+//        datas.add(MeLolFragment.newInstance(UrlTools.ME_LOL_HEAD , "deadbydaylight" , UrlTools.ME_LOL_MID , UrlTools.ME_LOL_FOOTER));
+//        datas.add(MeLolFragment.newInstance(UrlTools.ME_LOL_HEAD , "starve" , UrlTools.ME_LOL_MID , UrlTools.ME_LOL_FOOTER));
+//        datas.add(MeLolFragment.newInstance(UrlTools.ME_LOL_HEAD , "dota2" , UrlTools.ME_LOL_MID , UrlTools.ME_LOL_FOOTER));
+//        datas.add(MeLolFragment.newInstance(UrlTools.ME_LOL_HEAD , "kof97" , UrlTools.ME_LOL_MID , UrlTools.ME_LOL_FOOTER));
+
+
+
         meTabAdapter = new MeTabAdapter(getChildFragmentManager(),datas,getContext());
         vpMe.setAdapter(meTabAdapter);
         tabMe.setupWithViewPager(vpMe);
 
+        // 自定义TabLayout
         for (int i = 0; i < tabMe.getTabCount(); i++) {
             TabLayout.Tab tab = tabMe.getTabAt(i);
             tab.setCustomView(meTabAdapter.getTabView(i));
 
         }
-
-
-//        tabMe.getTabAt(0).setText("精彩推荐");
-//        tabMe.getTabAt(1).setText("全部直播");
-//        tabMe.getTabAt(2).setText("英雄联盟");
-//        tabMe.getTabAt(3).setText("炉石传说");
-//        tabMe.getTabAt(4).setText("熊猫星秀");
 
         //设置文字颜色
 //        tabMe.setTabTextColors(Color.BLACK,Color.GREEN);
