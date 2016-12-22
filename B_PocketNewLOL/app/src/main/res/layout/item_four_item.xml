@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/four_img"
+            android:layout_width="180dp"
+            android:layout_height="100dp"
+            android:scaleType="fitXY"/>
+
+        <TextView
+            android:id="@+id/four_time"
+            android:layout_marginLeft="140dp"
+            android:padding="5dp"
+            android:textColor="#fff"
+            android:text="测试数据"
+            android:textSize="10sp"
+            android:background="#818080"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/four_title"
+            android:layout_below="@+id/four_img"
+            android:layout_margin="5dp"
+            android:maxEms="10"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="测试数据title"
+            android:textSize="18sp"
+            android:textColor="#000"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/four_author"
+            android:layout_margin="5dp"
+            android:layout_above="@+id/four_title"
+            android:text="英雄联盟测试视频"
+            android:textColor="#fff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/four_pubdate"
+            android:layout_below="@+id/four_title"
+            android:text="测试时间10:10:23"
+            android:layout_margin="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/four_pubdate"
+            android:layout_marginLeft="25dp"
+            android:layout_below="@+id/four_title"
+            android:text="播放"
+            android:textColor="#f7b45b"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+
+</LinearLayout>
