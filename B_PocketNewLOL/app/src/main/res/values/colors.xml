@@ -7,7 +7,14 @@
 
 
 
+
     <color name="color_titels_tab">#00D897</color>
+
+
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorBlack">#121212</color>
+    <color name="colorPopline">#494949</color>
+    <color name="colorText">#A7A7A7</color>
 
 
 </resources>

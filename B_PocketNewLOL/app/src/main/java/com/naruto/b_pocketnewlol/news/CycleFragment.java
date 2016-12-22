@@ -1,11 +1,15 @@
 package com.naruto.b_pocketnewlol.news;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import com.github.jdsjlzx.interfaces.OnLoadMoreListener;
 import com.github.jdsjlzx.interfaces.OnRefreshListener;
@@ -51,6 +55,20 @@ public class CycleFragment extends BaseFragment {
         recyclerView.setAdapter(lRecyclerViewAdapter);
         LinearLayoutManager manager = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false);
         recyclerView.setLayoutManager(manager);
+
+        View view = LayoutInflater.from(getContext()).inflate(R.layout.item_top,null);
+        RelativeLayout rlLeft = (RelativeLayout) view.findViewById(R.id.rl_one);
+        RelativeLayout rlRight = (RelativeLayout) view.findViewById(R.id.rl_two);
+
+        rlRight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(),VideoActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        lRecyclerViewAdapter.addHeaderView(view);
 
         recyclerView.setOnRefreshListener(new OnRefreshListener() {
             @Override

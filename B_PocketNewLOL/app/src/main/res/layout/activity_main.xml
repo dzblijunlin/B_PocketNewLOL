@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.naruto.b_pocketlol.main.MainActivity">
+    >
     <FrameLayout
         android:id="@+id/main_replace"
         android:layout_width="match_parent"
@@ -80,7 +79,6 @@
             android:text="我"
             android:textSize="10sp"
             android:textColor="@color/color"
-
             android:layout_marginTop="5dp"/>
 
 

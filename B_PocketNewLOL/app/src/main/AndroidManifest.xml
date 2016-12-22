@@ -14,6 +14,7 @@
     <!-- 蓝牙分享所需的权限 -->
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launch"
@@ -25,9 +26,15 @@
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+
             </intent-filter>
         </activity>
-    </application>
 
+        <activity android:name=".friend.SearchFriendActivity"/>
+
+        <activity android:name=".news.WebBannerActivity" />
+        <activity android:name=".news.VideoActivity"></activity>
+
+    </application>
 
 </manifest>

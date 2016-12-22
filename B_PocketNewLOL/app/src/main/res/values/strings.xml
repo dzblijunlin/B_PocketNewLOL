@@ -3,4 +3,5 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="NoMessage">暂时没有消息,快去找好友聊天吧 !</string>
 </resources>
