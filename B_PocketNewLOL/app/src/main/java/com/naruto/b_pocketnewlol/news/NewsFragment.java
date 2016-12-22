@@ -1,6 +1,7 @@
 package com.naruto.b_pocketnewlol.news;
 
 
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -14,6 +15,7 @@ import com.naruto.b_pocketnewlol.entity.onHttpCallBack;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.Transformer;
+import com.youth.banner.listener.OnBannerClickListener;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -30,6 +32,7 @@ public class NewsFragment extends BaseFragment {
     private NewTabAdapter adapter;
     private ArrayList<String> pics;
     private Banner banner;
+    private ArrayList<String> urls;
 
     @Override
     public int setLayout() {
@@ -74,7 +77,16 @@ public class NewsFragment extends BaseFragment {
         /////////////////////
 
         pics = new ArrayList<>();
+        urls = new ArrayList<>();
         StartUrl("http://qt.qq.com/static/pages/news/phone/c13_list_1.shtml?plat=android&version=9713");
+        banner.setOnBannerClickListener(new OnBannerClickListener() {
+            @Override
+            public void OnBannerClick(int position) {
+                Intent intent = new Intent(getActivity(),WebBannerActivity.class);
+                intent.putExtra("url",urls.get(position - 1));
+                startActivity(intent);
+            }
+        });
 
     }
 
@@ -82,9 +94,12 @@ public class NewsFragment extends BaseFragment {
         NetTool.getInstance().startRequest(url, BannerBean.class, new onHttpCallBack<BannerBean>() {
             @Override
             public void onSuccess(BannerBean response) {
+                // 轮播显示的网址集合
                 for (int i = 0; i < response.getList().size(); i++) {
                     pics.add(response.getList().get(i).getImage_url_big());
+                    urls.add(response.getList().get(i).getArticle_url());
                 }
+
                 banner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR_TITLE);
                 banner.setImageLoader(new GlideImageLoader());
                 banner.setImages(pics);
