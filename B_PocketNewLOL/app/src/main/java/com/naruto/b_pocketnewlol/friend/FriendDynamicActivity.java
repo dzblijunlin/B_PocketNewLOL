@@ -1,5 +1,4 @@
 package com.naruto.b_pocketnewlol.friend;
-
  /*
                    _ooOoo_
                   o8888888o
@@ -22,36 +21,34 @@ package com.naruto.b_pocketnewlol.friend;
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
          佛祖保佑       永无BUG
 
-Created by Android_刘德强 on 16/12/21.
+Created by Android_刘德强 on 16/12/22.
 */
 
 
-import android.content.Intent;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
+import android.widget.ImageView;
 
 import com.naruto.b_pocketnewlol.R;
-import com.naruto.b_pocketnewlol.base.BaseFragment;
+import com.naruto.b_pocketnewlol.base.BaseActivity;
 
-//好友页面
-public class FriendsFragment extends BaseFragment implements OnClickListener {
+//好友动态
+public class FriendDynamicActivity extends BaseActivity implements OnClickListener {
 
-    private LinearLayout linearLayout;
-    private RelativeLayout relativeLayout;
+    private ImageView friendPublish;
+    private ImageView friendBack;
 
     @Override
     public int setLayout () {
-        return R.layout.fragment_friends;
+        return R.layout.activity_frienddynamic;
     }
 
     @Override
-    public void initView (View view) {
-        linearLayout = (LinearLayout) view.findViewById (R.id.ll_search_friend);
-        linearLayout.setOnClickListener (this);
-        relativeLayout = (RelativeLayout) view.findViewById (R.id.rl_friend_dynamic);
-        relativeLayout.setOnClickListener (this);
+    public void initView () {
+        friendPublish = (ImageView) findViewById (R.id.iv_friend_publish);
+        friendPublish.setOnClickListener (this);
+        friendBack = (ImageView) findViewById (R.id.iv_friend_back);
+        friendBack.setOnClickListener (this);
 
     }
 
@@ -63,13 +60,12 @@ public class FriendsFragment extends BaseFragment implements OnClickListener {
     @Override
     public void onClick (View view) {
         switch (view.getId ()){
-            case R.id.ll_search_friend:
-                Intent intent=new Intent (getActivity (),SearchFriendActivity.class);
-                startActivity (intent);
+            case R.id.iv_friend_publish:
+
                 break;
-            case R.id.rl_friend_dynamic:
-                Intent intent1=new Intent (getActivity (),FriendDynamicActivity.class);
-                startActivity (intent1);
+            case R.id.iv_friend_back:
+                finish ();
+                break;
         }
     }
 }
