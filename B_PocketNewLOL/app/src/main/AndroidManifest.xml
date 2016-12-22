@@ -29,6 +29,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".friend.SearchFriendActivity"/>
+        <activity android:name=".friend.FriendDynamicActivity"/>
     </application>
 
 
