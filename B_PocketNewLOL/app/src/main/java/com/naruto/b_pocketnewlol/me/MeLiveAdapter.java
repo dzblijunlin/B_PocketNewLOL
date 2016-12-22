@@ -36,6 +36,9 @@ public class MeLiveAdapter extends RecyclerView.Adapter<MeLiveAdapter.LiveViewHo
         super();
         list = new ArrayList<>();
     }
+    public void Clear(){
+        list.clear();
+    }
 
     public void setMeLiveClick(MeLiveClick meLiveClick) {
         this.meLiveClick = meLiveClick;

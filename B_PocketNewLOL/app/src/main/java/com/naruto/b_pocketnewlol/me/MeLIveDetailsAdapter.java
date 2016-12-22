@@ -58,6 +58,7 @@ public class MeLIveDetailsAdapter extends RecyclerView.Adapter<MeLIveDetailsAdap
 
         holder.nameTv.setText(data.get(position).getName());
         holder.nickNameTv.setText(data.get(position).getUserinfo().getNickName());
+        holder.personTv.setText(data.get(position).getPerson_num());
         Glide.with(context).load(data.get(position).getPictures().getImg()).into(holder.imgIv);
 //        holder.nameTv.setText(data.getData().get(position).getItems().get(position).getName());
 //        holder.nickNameTv.setText(data.getData().get(position).getItems().get(position).getUserinfo().getNickName());
@@ -70,7 +71,7 @@ public class MeLIveDetailsAdapter extends RecyclerView.Adapter<MeLIveDetailsAdap
     }
 
     class DetailsViewHolder extends RecyclerView.ViewHolder {
-        private TextView nameTv, nickNameTv;
+        private TextView nameTv, nickNameTv,personTv;
         private ImageView imgIv;
 
         public DetailsViewHolder(View itemView) {
@@ -78,6 +79,7 @@ public class MeLIveDetailsAdapter extends RecyclerView.Adapter<MeLIveDetailsAdap
             nameTv = (TextView) itemView.findViewById(R.id.item_details_name);
             nickNameTv = (TextView) itemView.findViewById(R.id.item_details_nickName);
             imgIv = (ImageView) itemView.findViewById(R.id.item_details_img);
+            personTv = (TextView) itemView.findViewById(R.id.item_live_details_person_num);
         }
     }
 

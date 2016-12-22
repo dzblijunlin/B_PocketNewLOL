@@ -28,9 +28,6 @@ public class MeLiveFragment extends BaseFragment implements MeLiveClick {
     private MeLIveDetailsAdapter meLIveDetailsAdapter;
     private MeLiveBean list;
 
-
-    //private List<MeLiveBean.DataBean.TypeBean> data;
-
     @Override
     public int setLayout() {
         return R.layout.fragment_live_me;
@@ -40,7 +37,7 @@ public class MeLiveFragment extends BaseFragment implements MeLiveClick {
     public void initView(View view) {
         recyclerView = bindView(R.id.rv_me);
         meLiveAdapter = new MeLiveAdapter(getContext());
-        //meLIveDetailsAdapter = new MeLIveDetailsAdapter(getContext());
+
         // 接口回调
         meLiveAdapter.setMeLiveClick(this);
     }
