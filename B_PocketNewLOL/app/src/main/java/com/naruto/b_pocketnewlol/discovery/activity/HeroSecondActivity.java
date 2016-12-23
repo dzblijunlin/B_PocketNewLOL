@@ -5,6 +5,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.naruto.b_pocketnewlol.R;
 import com.naruto.b_pocketnewlol.base.BaseActivity;
@@ -21,6 +23,7 @@ public class HeroSecondActivity extends BaseActivity {
     private TabLayout tab;
     private ViewPager vp;
     private ArrayList<Fragment> data;
+    private ImageView backIv;
 
     @Override
     public int setLayout() {
@@ -32,12 +35,23 @@ public class HeroSecondActivity extends BaseActivity {
 
         tab = bindView(R.id.discovery_hero_sec_tab);
         vp = bindView(R.id.discovery_hero_sec_vp);
+        backIv = bindView(R.id.discovery_hero_sec_back_iv);
         data = new ArrayList<>();
     }
 
     @Override
     public void initData() {
         getTabData();
+        getBack();
+    }
+
+    private void getBack() {
+        backIv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 
     private void getTabData() {

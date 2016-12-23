@@ -28,79 +28,24 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".friend.SearchFriendActivity" />
         <activity android:name=".friend.FriendDynamicActivity" />
         <activity android:name=".news.VideoActivity" />
         <activity android:name=".news.WebBannerActivity" />
-        <activity android:name=".discovery.activity.HeroSecondActivity"></activity>
+        <activity android:name=".discovery.activity.HeroSecondActivity" />
+
+        <!-- <activity android:name=".friend.SearchFriendActivity"/> -->
 
 
-
-        <!--<activity android:name=".friend.SearchFriendActivity"/>-->
-
-
-        <!--<activity android:name=".friend.FriendDynamicActivity"/>-->
-   
+        <!-- <activity android:name=".friend.FriendDynamicActivity"/> -->
 
 
+        <!-- <activity android:name=".news.VideoActivity"/> -->
+        <!-- <activity android:name=".news.WebBannerActivity"/> -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <!--<activity android:name=".news.VideoActivity"/>-->
-        <!--<activity android:name=".news.WebBannerActivity"/>-->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <activity android:name=".me.DrawerActivity"/>
-
-
-
-
-
-
+        <activity android:name=".me.DrawerActivity" />
+        <activity android:name=".discovery.activity.PlayerSecondActivity" />
+        <activity android:name=".discovery.activity.NearSecondActivity"></activity>
     </application>
 
 </manifest>

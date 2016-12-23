@@ -18,6 +18,8 @@ import com.bumptech.glide.Glide;
 import com.naruto.b_pocketnewlol.R;
 import com.naruto.b_pocketnewlol.base.BaseFragment;
 import com.naruto.b_pocketnewlol.discovery.activity.HeroSecondActivity;
+import com.naruto.b_pocketnewlol.discovery.activity.NearSecondActivity;
+import com.naruto.b_pocketnewlol.discovery.activity.PlayerSecondActivity;
 import com.naruto.b_pocketnewlol.discovery.adapter.GameAdapter;
 import com.naruto.b_pocketnewlol.discovery.adapter.TeamAdapter;
 import com.naruto.b_pocketnewlol.discovery.bean.LogoBean;
@@ -172,6 +174,14 @@ public class DiscoveryFragment extends BaseFragment implements View.OnClickListe
             case R.id.discovery_hero_ll:
                 Intent intent = new Intent(getContext(), HeroSecondActivity.class);
                 startActivity(intent);
+                break;
+            case R.id.discovery_player_ll:
+                Intent intent1 = new Intent(getContext(), PlayerSecondActivity.class);
+                startActivity(intent1);
+                break;
+            case R.id.discovery_near_ll:
+                Intent intent2 = new Intent(getContext(), NearSecondActivity.class);
+                startActivity(intent2);
                 break;
         }
     }
