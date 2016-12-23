@@ -37,36 +37,34 @@ import de.hdodenhof.circleimageview.CircleImageView;
  * <p>
  * ━━━━━━感觉萌萌哒━━━━━━
  * <p>
- * Created by kevin on 16/12/21.
+ * Created by kevin on 16/12/22.
  */
 
-public class OneAdapter extends RecyclerView.Adapter<OneAdapter.MyViewHolder>{
+public class ZBAdapter extends RecyclerView.Adapter<ZBAdapter.ZViewHolder>{
 
-    private List<OneBean.MsgBean.HotRecWpvlistBean> data;
+    private List<ZBBean.MsgBean> data;
     private Context context;
 
-    public OneAdapter(Context context) {
-        this.context = context;
-    }
-
-    public void setData(List<OneBean.MsgBean.HotRecWpvlistBean> data) {
+    public void setData(List<ZBBean.MsgBean> data) {
         this.data = data;
         notifyDataSetChanged();
     }
 
+    public ZBAdapter(Context context) {
+        this.context = context;
+    }
+
     @Override
-    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.item_one_item,parent,false);
-        MyViewHolder holder = new MyViewHolder(view);
+    public ZViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(context).inflate(R.layout.item_zhu_bo_item,parent,false);
+        ZViewHolder holder = new ZViewHolder(view);
         return holder;
     }
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
-        Glide.with(context).load(data.get(position).getAppthumb()).into(holder.imgBack);
-        Glide.with(context).load(data.get(position).getAuthorImg()).into(holder.imgA);
-        holder.tvTime.setText(data.get(position).getTime());
-        holder.tv_title_one.setText(data.get(position).getTitle());
+    public void onBindViewHolder(ZViewHolder holder, int position) {
+        holder.tv.setText(data.get(position).getSName());
+        Glide.with(context).load(data.get(position).getSIMG()).into(holder.img);
     }
 
     @Override
@@ -74,17 +72,13 @@ public class OneAdapter extends RecyclerView.Adapter<OneAdapter.MyViewHolder>{
         return data != null && data.size() > 0 ? data.size() : 0;
     }
 
-    class MyViewHolder extends RecyclerView.ViewHolder{
-        private ImageView imgBack;
-        private TextView tvTime;
-        private ImageView imgA;
-        private TextView tv_title_one;
-        public MyViewHolder(View itemView) {
+    class ZViewHolder extends RecyclerView.ViewHolder{
+        private ImageView img;
+        private TextView tv;
+        public ZViewHolder(View itemView) {
             super(itemView);
-            imgBack = (ImageView) itemView.findViewById(R.id.img_one);
-            tvTime = (TextView) itemView.findViewById(R.id.tv_one);
-            imgA = (CircleImageView) itemView.findViewById(R.id.img_tou_one);
-            tv_title_one = (TextView) itemView.findViewById(R.id.tv_title_one);
+            img = (ImageView) itemView.findViewById(R.id.xz_img);
+            tv = (TextView) itemView.findViewById(R.id.xz_tv);
         }
     }
 }
