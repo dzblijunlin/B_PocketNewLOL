@@ -36,6 +36,29 @@
         <activity android:name=".friend.FriendDynamicActivity"/>
    
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <activity android:name=".news.VideoActivity"/>
+        <activity android:name=".news.WebBannerActivity"/>
     </application>
 
 </manifest>
