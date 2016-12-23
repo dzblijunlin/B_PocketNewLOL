@@ -30,6 +30,7 @@ import android.content.Intent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import com.naruto.b_pocketnewlol.R;
 import com.naruto.b_pocketnewlol.base.BaseFragment;
@@ -38,6 +39,7 @@ import com.naruto.b_pocketnewlol.base.BaseFragment;
 public class FriendsFragment extends BaseFragment implements OnClickListener {
 
     private LinearLayout linearLayout;
+    private RelativeLayout relativeLayout;
 
     @Override
     public int setLayout () {
@@ -48,6 +50,8 @@ public class FriendsFragment extends BaseFragment implements OnClickListener {
     public void initView (View view) {
         linearLayout = (LinearLayout) view.findViewById (R.id.ll_search_friend);
         linearLayout.setOnClickListener (this);
+        relativeLayout = (RelativeLayout) view.findViewById (R.id.rl_friend_dynamic);
+        relativeLayout.setOnClickListener (this);
 
     }
 
@@ -63,6 +67,9 @@ public class FriendsFragment extends BaseFragment implements OnClickListener {
                 Intent intent=new Intent (getActivity (),SearchFriendActivity.class);
                 startActivity (intent);
                 break;
+            case R.id.rl_friend_dynamic:
+                Intent intent1=new Intent (getActivity (),FriendDynamicActivity.class);
+                startActivity (intent1);
         }
     }
 }

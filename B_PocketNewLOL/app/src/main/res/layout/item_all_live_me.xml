@@ -11,7 +11,7 @@
         android:layout_height="100dp"
         android:padding="5dp"
         >
-        
+
         <ImageView
             android:id="@+id/item_all_img"
             android:layout_width="match_parent"

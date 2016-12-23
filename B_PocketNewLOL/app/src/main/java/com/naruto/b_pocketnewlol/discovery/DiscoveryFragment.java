@@ -6,13 +6,16 @@ package com.naruto.b_pocketnewlol.discovery;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.ExpandableListView;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.bumptech.glide.Glide;
 import com.naruto.b_pocketnewlol.R;
 import com.naruto.b_pocketnewlol.base.BaseFragment;
+import com.naruto.b_pocketnewlol.discovery.adapter.GameAdapter;
 import com.naruto.b_pocketnewlol.discovery.adapter.TeamAdapter;
 import com.naruto.b_pocketnewlol.discovery.bean.LogoBean;
 import com.naruto.b_pocketnewlol.discovery.bean.TeamBean;
@@ -20,6 +23,7 @@ import com.naruto.b_pocketnewlol.entity.NetTool;
 import com.naruto.b_pocketnewlol.entity.onHttpCallBack;
 import com.naruto.b_pocketnewlol.tools.UrlTools;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -27,8 +31,12 @@ import java.util.List;
  */
 public class DiscoveryFragment extends BaseFragment {
     private RecyclerView rv;
-    private ImageView heroIv,playerIv,nearIv,pkIv,barIv;
-    private TextView heroTv,playerTv,nearTv,pkTv,barTv;
+    private ImageView heroIv,playerIv,nearIv,pkIv,barIv,timeIv,picIv;
+    private TextView heroTv,playerTv,nearTv,pkTv,barTv,timeTv,picTv;
+    private List<LogoBean.ListBean> fatherData;
+    private List<List<LogoBean.ListBean>> sonData;
+    private ExpandableListView expandableListView;
+    private String logoUrl;
 
 
     @Override
@@ -49,16 +57,52 @@ public class DiscoveryFragment extends BaseFragment {
         pkTv = bindView(R.id.discovery_pk_tv);
         barIv = bindView(R.id.discovery_bar_iv);
         barTv = bindView(R.id.discovery_bar_tv);
+        expandableListView = bindView(R.id.expand_lv);
+        timeIv = bindView(R.id.discovery_time_iv);
+        timeTv = bindView(R.id.discovery_time_tv);
+        picIv = bindView(R.id.discovery_picture_iv);
+        picTv = bindView(R.id.discovery_picture_tv);
+        fatherData = new ArrayList<>();
+        sonData = new ArrayList<>();
     }
 
     @Override
     public void initData() {
         getTeamData();
         getHeroData();
+        getExpandLvData();
+    }
+
+    private void getExpandLvData() {
+        NetTool.getInstance().startRequest(logoUrl, LogoBean.class, new onHttpCallBack<LogoBean>() {
+            @Override
+            public void onSuccess(LogoBean response) {
+
+                fatherData = response.getList();
+                List<LogoBean.ListBean> data = response.getList();
+                sonData.add(data);
+                GameAdapter adapter = new GameAdapter(getContext());
+                adapter.setFatherData(fatherData);
+                adapter.setSonData(sonData);
+                expandableListView.setAdapter(adapter);
+//                expandableListView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
+//                    @Override
+//                    public boolean onGroupClick(ExpandableListView expandableListView, View view, int i, long l) {
+//                        Toast.makeText(getContext(), "hahaha", Toast.LENGTH_SHORT).show();
+//                        return false;
+//                    }
+//                });
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+        });
     }
 
     private void getHeroData() {
-        String logoUrl = UrlTools.DISCOVERY_LOGO;
+        logoUrl = UrlTools.DISCOVERY_LOGO;
         NetTool.getInstance().startRequest(logoUrl, LogoBean.class, new onHttpCallBack<LogoBean>() {
             @Override
             public void onSuccess(LogoBean response) {
@@ -67,11 +111,16 @@ public class DiscoveryFragment extends BaseFragment {
                 Glide.with(getContext()).load(response.getList().get(17).getImage_url_big()).into(nearIv);
                 Glide.with(getContext()).load(response.getList().get(9).getImage_url_big()).into(pkIv);
                 Glide.with(getContext()).load(response.getList().get(1).getImage_url_big()).into(barIv);
+                Glide.with(getContext()).load(response.getList().get(2).getImage_url_big()).into(picIv);
+                Glide.with(getContext()).load(response.getList().get(11).getImage_url_big()).into(timeIv);
+
                 playerTv.setText(response.getList().get(0).getTitle());
                 heroTv.setText(response.getList().get(15).getTitle());
                 nearTv.setText(response.getList().get(17).getTitle());
                 pkTv.setText(response.getList().get(9).getTitle());
                 barTv.setText(response.getList().get(1).getTitle());
+                picTv.setText(response.getList().get(2).getTitle());
+                timeTv.setText(response.getList().get(11).getTitle());
             }
 
             @Override

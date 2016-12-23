@@ -32,8 +32,9 @@
 
         <activity android:name=".friend.SearchFriendActivity"/>
 
-        <activity android:name=".news.WebBannerActivity" />
-        <activity android:name=".news.VideoActivity"></activity>
+
+        <activity android:name=".friend.FriendDynamicActivity"/>
+   
 
     </application>
 

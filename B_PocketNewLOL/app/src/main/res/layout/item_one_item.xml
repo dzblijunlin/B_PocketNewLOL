@@ -1,34 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="#fff">
 
     <ImageView
         android:id="@+id/img_one"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:src="@mipmap/a_a"
+        android:layout_width="250dp"
+        android:layout_height="140dp"
+        android:scaleType="fitXY"/>
 
     <TextView
         android:id="@+id/tv_one"
-        android:layout_alignParentRight="true"
         android:text="49:00"
+        android:textColor="#fff"
+        android:background="#868383"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/img_tou_one"
         android:layout_below="@+id/img_one"
-        android:src="@mipmap/ic_launcher"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:src="@mipmap/a_b"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_margin="10dp"/>
 
     <TextView
         android:id="@+id/tv_title_one"
         android:layout_toRightOf="@+id/img_tou_one"
         android:layout_below="@+id/img_one"
+        android:text="测试数据"
+        android:maxEms="14"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:textColor="#000"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"/>
 
 
 
