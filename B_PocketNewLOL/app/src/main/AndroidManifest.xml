@@ -37,6 +37,29 @@
 
    
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <activity android:name=".news.VideoActivity"/>
+        <activity android:name=".news.WebBannerActivity"/>
     </application>
 
 </manifest>
