@@ -1,12 +1,14 @@
 package com.naruto.b_pocketnewlol.me;
 
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 
 
 import com.naruto.b_pocketnewlol.R;
@@ -24,7 +26,7 @@ import java.util.ArrayList;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class MeFragment extends BaseFragment {
+public class MeFragment extends BaseFragment implements View.OnClickListener {
     // 这是DgPeng 的任务
 
     private TabLayout tabMe;
@@ -33,6 +35,7 @@ public class MeFragment extends BaseFragment {
     private ArrayList<String> pics;
     private ArrayList<Fragment> datas;
     private MeTabAdapter meTabAdapter;
+    private ImageView inIv;
 
     @Override
     public int setLayout() {
@@ -44,6 +47,8 @@ public class MeFragment extends BaseFragment {
         tabMe = bindView(R.id.tab_me);
         vpMe = bindView(R.id.vp_me);
         bannerMe = bindView(R.id.banner_me);
+        inIv = bindView(R.id.me_add);
+        inIv.setOnClickListener(this);
 
     }
 
@@ -111,5 +116,15 @@ public class MeFragment extends BaseFragment {
             }
         });
 
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.me_add:
+                Intent intent = new Intent(getActivity(),DrawerActivity.class);
+                startActivity(intent);
+                break;
+        }
     }
 }
