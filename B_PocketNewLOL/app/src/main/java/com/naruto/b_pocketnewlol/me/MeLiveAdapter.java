@@ -1,5 +1,6 @@
 package com.naruto.b_pocketnewlol.me;
 
+import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.GridLayoutManager;
@@ -8,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -53,15 +55,17 @@ public class MeLiveAdapter extends RecyclerView.Adapter<MeLiveAdapter.LiveViewHo
         notifyDataSetChanged();
     }
 
-    //    public void setData(List<MeLiveBean.DataBean.TypeBean> data) {
-//        this.data = data;
-//        notifyDataSetChanged();
-//    }
-//
-//    public void setList(List<MeLiveBean.DataBean.ItemsBean> list) {
-//        this.list = list;
-//        notifyDataSetChanged();
-//    }
+    // 滑动特效
+    @Override
+    public void onViewAttachedToWindow(LiveViewHolder holder) {
+        super.onViewAttachedToWindow(holder);
+        View view = holder.itemView;
+        TranslateAnimation translateAnimation = new TranslateAnimation(500, 0, 0, 0);
+        translateAnimation.setDuration(200);
+        view.setAnimation(translateAnimation);
+        translateAnimation.start();
+    }
+
 
     @Override
     public LiveViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
