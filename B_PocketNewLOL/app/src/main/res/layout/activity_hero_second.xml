@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_hero_second"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.naruto.b_pocketnewlol.discovery.activity.HeroSecondActivity"
+    android:background="#FFF">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@mipmap/header_bg_small"
+
+        >
+        <ImageView
+            android:id="@+id/discovery_hero_sec_back_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/nav_back_normal"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dp_10"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="英雄资料"
+            android:textColor="#D3BF8D"
+            android:textSize="19sp"
+            android:layout_centerInParent="true"/>
+
+    </RelativeLayout>
+    <android.support.design.widget.TabLayout
+        android:id="@+id/discovery_hero_sec_tab"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </android.support.design.widget.TabLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:background="@drawable/shape_discovery_update"
+        android:layout_margin="@dimen/dp_10"
+        android:text="更新时间 : 每周五中午"
+        android:textColor="#FFF"
+        android:gravity="center"/>
+    <android.support.v4.view.ViewPager
+        android:id="@+id/discovery_hero_sec_vp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </android.support.v4.view.ViewPager>
+
+</LinearLayout>

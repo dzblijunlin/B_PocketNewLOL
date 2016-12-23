@@ -9,7 +9,7 @@ import android.widget.RadioButton;
 
 import com.naruto.b_pocketnewlol.R;
 import com.naruto.b_pocketnewlol.base.BaseActivity;
-import com.naruto.b_pocketnewlol.discovery.DiscoveryFragment;
+import com.naruto.b_pocketnewlol.discovery.fragment.DiscoveryFragment;
 import com.naruto.b_pocketnewlol.friend.FriendFragment;
 import com.naruto.b_pocketnewlol.me.MeFragment;
 import com.naruto.b_pocketnewlol.news.NewsFragment;

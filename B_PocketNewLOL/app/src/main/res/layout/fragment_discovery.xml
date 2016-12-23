@@ -27,8 +27,8 @@
                     android:id="@+id/discovery_title_rl"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:alpha="00"
-                    android:background="@mipmap/header_bg_small">
+                    android:alpha="0.8"
+                    >
 
                     <ImageView
                         android:id="@+id/discovery_barcode_iv"
@@ -83,6 +83,7 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
+                    android:id="@+id/discovery_hero_ll"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -107,6 +108,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/discovery_player_ll"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -131,6 +133,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/discovery_near_ll"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
