@@ -6,11 +6,13 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
+import com.github.jdsjlzx.interfaces.OnItemClickListener;
 import com.github.jdsjlzx.interfaces.OnLoadMoreListener;
 import com.github.jdsjlzx.interfaces.OnRefreshListener;
 import com.github.jdsjlzx.recyclerview.LRecyclerView;
@@ -60,10 +62,28 @@ public class CycleFragment extends BaseFragment {
         RelativeLayout rlLeft = (RelativeLayout) view.findViewById(R.id.rl_one);
         RelativeLayout rlRight = (RelativeLayout) view.findViewById(R.id.rl_two);
 
+        rlLeft.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(),EventsActivity.class);
+                startActivity(intent);
+            }
+        });
+
         rlRight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(),VideoActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        lRecyclerViewAdapter.setOnItemClickListener(new OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int i) {
+                Log.d("CycleFragment", data.get(i).getArticle_url());
+                Intent intent = new Intent(getActivity(),WebBannerActivity.class);
+                intent.putExtra("url",data.get(i).getArticle_url());
                 startActivity(intent);
             }
         });
