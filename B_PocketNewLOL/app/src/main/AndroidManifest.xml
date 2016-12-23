@@ -26,40 +26,14 @@
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-
             </intent-filter>
         </activity>
-
-        <activity android:name=".friend.SearchFriendActivity"/>
-
-
-        <activity android:name=".friend.FriendDynamicActivity"/>
-
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <activity android:name=".news.VideoActivity"/>
-        <activity android:name=".news.WebBannerActivity"/>
+        <activity android:name=".friend.SearchFriendActivity" />
+        <activity android:name=".friend.FriendDynamicActivity" />
+        <activity android:name=".news.VideoActivity" />
+        <activity android:name=".news.WebBannerActivity" />
+        <activity android:name=".news.EventsActivity" />
+        <activity android:name=".news.coustomrefresh.RPActivity"></activity>
     </application>
 
 </manifest>

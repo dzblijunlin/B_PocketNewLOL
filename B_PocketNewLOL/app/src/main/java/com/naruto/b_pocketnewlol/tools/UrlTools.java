@@ -93,4 +93,30 @@ public class UrlTools {
     // http://api.m.panda.tv/ajax_live_lists?pageno=1&pagenum=20&status=2&order=person_num&sproom=1&__version=2.1.3.1585&__plat=android&banner=1
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public static final String KNOWLEDGE_URL = "http://food.boohee.com/fb/v1/feeds/category_feed?page=1&category=3&per=10";
+    public static final String KNOWLEDGE_HEAD_URL = "http://food.boohee.com/fb/v1/feeds/category_feed?page=";
+    public static final String KNOWLEDGE_FOOT_URL = "&category=3&per=10";
+
+
+
 }

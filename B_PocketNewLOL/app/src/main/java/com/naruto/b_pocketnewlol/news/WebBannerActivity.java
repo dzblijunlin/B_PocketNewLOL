@@ -36,7 +36,7 @@ public class WebBannerActivity extends BaseActivity {
         Intent intent = getIntent();
         String url = intent.getStringExtra("url");
         webView.getSettings().setBlockNetworkImage(false);
-//        webView.getSettings().setJavaScriptEnabled(true);
+        webView.getSettings().setJavaScriptEnabled(true);
         webView.loadUrl(url);
 
         webView.setWebChromeClient(new WebChromeClient(){
