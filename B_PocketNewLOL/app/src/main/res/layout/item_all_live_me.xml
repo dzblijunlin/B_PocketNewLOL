@@ -11,12 +11,7 @@
         android:layout_height="100dp"
         android:padding="5dp"
         >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="最强王者"
-            android:layout_alignParentRight="true"
-            android:background="@mipmap/ic_launcher"/>
+
         <ImageView
             android:id="@+id/item_all_img"
             android:layout_width="match_parent"
