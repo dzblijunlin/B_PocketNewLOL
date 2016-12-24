@@ -4,7 +4,8 @@
     android:layout_height="wrap_content"
     android:layout_marginTop="5dp"
     android:layout_marginRight="@dimen/dp_10"
-    android:layout_marginLeft="@dimen/dp_10">
+    android:layout_marginLeft="@dimen/dp_10"
+    android:id="@+id/discovery_team_rl">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/discovery_team_iv"

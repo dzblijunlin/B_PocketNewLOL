@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.naruto.b_pocketnewlol.R;
+import com.naruto.b_pocketnewlol.discovery.MyClickListener;
 import com.naruto.b_pocketnewlol.discovery.bean.TeamBean;
 
 import java.util.List;
@@ -23,6 +24,11 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.MyTeamViewHolder>{
     private List<TeamBean.ClubsBean> data;
     private Context context;
+    private MyClickListener myClickListener;
+
+    public void setMyClickListener(MyClickListener myClickListener) {
+        this.myClickListener = myClickListener;
+    }
 
     public TeamAdapter(Context context) {
         this.context = context;
@@ -41,9 +47,15 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.MyTeamViewHold
     }
 
     @Override
-    public void onBindViewHolder(MyTeamViewHolder holder, int position) {
+    public void onBindViewHolder(final MyTeamViewHolder holder, int position) {
         Glide.with(context).load(data.get(position).getIconUrl()).into(holder.iv);
         holder.tv.setText(data.get(position).getName());
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myClickListener.MyListener(holder.getAdapterPosition());
+            }
+        });
 
     }
 
