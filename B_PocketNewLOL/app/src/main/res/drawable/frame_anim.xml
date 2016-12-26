@@ -3,27 +3,27 @@
 
     <item
         android:drawable="@mipmap/teemo_1"
-        android:duration="150"/>
+        android:duration="100"/>
     <item
         android:drawable="@mipmap/teemo_2"
-        android:duration="150"/>
+        android:duration="100"/>
     <item
         android:drawable="@mipmap/teemo_3"
-        android:duration="150"/>
+        android:duration="100"/>
     <item
         android:drawable="@mipmap/teemo_4"
-        android:duration="150"/>
+        android:duration="100"/>
     <item
         android:drawable="@mipmap/teemo_5"
-        android:duration="150"/>
+        android:duration="100"/>
     <item
         android:drawable="@mipmap/teemo_6"
-        android:duration="150"/>
+        android:duration="100"/>
     <item
         android:drawable="@mipmap/teemo_7"
-        android:duration="150"/>
+        android:duration="100"/>
     <item
         android:drawable="@mipmap/teemo_8"
-        android:duration="150"/>
+        android:duration="100"/>
 
 </animation-list>

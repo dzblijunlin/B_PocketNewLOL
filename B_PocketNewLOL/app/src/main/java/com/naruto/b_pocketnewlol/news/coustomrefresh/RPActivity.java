@@ -1,6 +1,9 @@
 package com.naruto.b_pocketnewlol.news.coustomrefresh;
 
 
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.android.volley.RequestQueue;
@@ -39,13 +42,23 @@ public class RPActivity extends BaseActivity implements OnRefreshListener, OnLoa
 
         lv = (ListView) findViewById(R.id.swipe_target);
         adapter = new KnowledgeAdapter();
-        lv.setAdapter(adapter);
-        getNetData();
+
+        View view = LayoutInflater.from(this).inflate(R.layout.into_map,null);
+        Button btn = (Button) view.findViewById(R.id.btn_map);
+        lv.addHeaderView(view);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
 
     }
 
     @Override
     public void initData() {
+        lv.setAdapter(adapter);
+        getNetData();
     }
 
     private void getNetData() {
