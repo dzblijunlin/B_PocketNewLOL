@@ -64,12 +64,16 @@
         <activity android:name=".discovery.activity.NearSecondActivity" />
         <activity android:name=".news.EventsActivity" />
         <activity android:name=".news.coustomrefresh.RPActivity" />
+
         <activity android:name=".discovery.activity.TeamSecondActivity"></activity>
         <activity android:name=".me.MapActivity"/>
 
         <service android:name="com.baidu.location.f" android:enabled="true"
             android:process=":remote">
         </service>
+
+        <activity android:name=".news.maps.MapTextActivity"></activity>
+
     </application>
 
 </manifest>
