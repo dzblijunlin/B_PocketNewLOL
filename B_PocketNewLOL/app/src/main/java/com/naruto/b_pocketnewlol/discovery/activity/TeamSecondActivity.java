@@ -1,5 +1,6 @@
 package com.naruto.b_pocketnewlol.discovery.activity;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -26,6 +27,8 @@ public class TeamSecondActivity extends BaseActivity {
     private LRecyclerViewAdapter lRecyclerViewAdapter;
 
     private TeamPhotoAdapter adapter;
+    private String id;
+    private int pos;
 
     @Override
     public int setLayout() {
@@ -37,23 +40,31 @@ public class TeamSecondActivity extends BaseActivity {
         rv = bindView(R.id.discovery_team_num_rv);
         data = new ArrayList<>();
         rv.setRefreshProgressStyle(ProgressStyle.BallSpinFadeLoader);
-        adapter = new TeamPhotoAdapter(this);
-        lRecyclerViewAdapter = new LRecyclerViewAdapter(adapter);
+
     }
 
     @Override
     public void initData() {
         getTeamPhoto();
+
     }
 
     private void getTeamPhoto() {
-        String url = UrlTools.DISCOVERY_TEAM_NUM_PHOTO;
+        Intent intent = getIntent();
+        id = intent.getStringExtra("id");
+        Log.d("iii", id);
+        pos = intent.getIntExtra("pos",0);
+        String url = UrlTools.DISCOVERY_TEAM_NUM_PHOTO_HEAD + id + UrlTools.DISCOVERY_TEAM_NUM_PHOTO_TAIL;
+        Log.d("qqq", url);
         NetTool.getInstance().startRequest(url, TeamNumPhotoBean.class, new onHttpCallBack<TeamNumPhotoBean>() {
             @Override
             public void onSuccess(TeamNumPhotoBean response) {
                 data = response.getMembers();
-                Log.d("ssss", "data:" + data);
+                Log.d("aaaa", "data:" + data);
                 adapter.setData(data);
+
+                adapter = new TeamPhotoAdapter(TeamSecondActivity.this);
+                lRecyclerViewAdapter = new LRecyclerViewAdapter(adapter);
                 rv.setAdapter(lRecyclerViewAdapter);
                 LinearLayoutManager manager = new LinearLayoutManager(TeamSecondActivity.this,LinearLayoutManager.HORIZONTAL,false);
                 rv.setLayoutManager(manager);

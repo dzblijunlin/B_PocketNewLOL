@@ -87,6 +87,7 @@ public class DiscoveryFragment extends BaseFragment implements View.OnClickListe
         teamAdapter.setMyClickListener(this);
 
 
+
     }
 
 
@@ -196,8 +197,10 @@ public class DiscoveryFragment extends BaseFragment implements View.OnClickListe
     }
 
     @Override
-    public void MyListener(int pos) {
+    public void MyListener(int pos,String id) {
         Intent intent = new Intent(getContext(), TeamSecondActivity.class);
+        intent.putExtra("pos",pos);
+        intent.putExtra("id",id);
         startActivity(intent);
     }
 }

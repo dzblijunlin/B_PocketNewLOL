@@ -5,5 +5,5 @@ package com.naruto.b_pocketnewlol.discovery;
  */
 // 发现页上方的rv点击事件
 public interface MyClickListener {
-    void MyListener(int pos);
+    void MyListener(int pos,String id);
 }
