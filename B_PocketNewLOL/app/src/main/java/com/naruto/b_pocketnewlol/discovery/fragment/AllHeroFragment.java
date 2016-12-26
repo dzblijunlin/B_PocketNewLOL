@@ -6,25 +6,33 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.naruto.b_pocketnewlol.R;
+import com.naruto.b_pocketnewlol.base.BaseFragment;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class AllHeroFragment extends Fragment {
+public class AllHeroFragment extends BaseFragment {
 
 
-    public AllHeroFragment() {
-        // Required empty public constructor
-    }
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_all_hero, container, false);
+    public int setLayout() {
+        return R.layout.fragment_all_hero;
+    }
+
+    @Override
+    public void initView(View view) {
+
+    }
+
+    @Override
+    public void initData() {
+
     }
 
 }

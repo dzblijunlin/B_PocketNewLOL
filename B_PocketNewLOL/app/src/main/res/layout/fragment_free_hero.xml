@@ -5,6 +5,14 @@
     android:layout_height="match_parent"
     tools:context="com.naruto.b_pocketnewlol.discovery.fragment.FreeHeroFragment">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:background="@drawable/shape_discovery_update"
+        android:layout_margin="@dimen/dp_10"
+        android:text="更新时间 : 每周五中午"
+        android:textColor="#FFF"
+        android:gravity="center"/>
     <android.support.v7.widget.RecyclerView
         android:id="@+id/hero_free_rv"
         android:layout_width="match_parent"

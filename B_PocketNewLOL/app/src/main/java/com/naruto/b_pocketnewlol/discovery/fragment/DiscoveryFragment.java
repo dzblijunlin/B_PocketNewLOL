@@ -17,9 +17,11 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.naruto.b_pocketnewlol.R;
 import com.naruto.b_pocketnewlol.base.BaseFragment;
+import com.naruto.b_pocketnewlol.discovery.MyClickListener;
 import com.naruto.b_pocketnewlol.discovery.activity.HeroSecondActivity;
 import com.naruto.b_pocketnewlol.discovery.activity.NearSecondActivity;
 import com.naruto.b_pocketnewlol.discovery.activity.PlayerSecondActivity;
+import com.naruto.b_pocketnewlol.discovery.activity.TeamSecondActivity;
 import com.naruto.b_pocketnewlol.discovery.adapter.GameAdapter;
 import com.naruto.b_pocketnewlol.discovery.adapter.TeamAdapter;
 import com.naruto.b_pocketnewlol.discovery.bean.LogoBean;
@@ -34,7 +36,7 @@ import java.util.List;
 /**
  * 大嘴宝的任务
  */
-public class DiscoveryFragment extends BaseFragment implements View.OnClickListener {
+public class DiscoveryFragment extends BaseFragment implements View.OnClickListener, MyClickListener {
     private RecyclerView rv;
     private ImageView heroIv,playerIv,nearIv,pkIv,barIv,timeIv,picIv;
     private TextView heroTv,playerTv,nearTv,pkTv,barTv,timeTv,picTv;
@@ -43,6 +45,7 @@ public class DiscoveryFragment extends BaseFragment implements View.OnClickListe
     private ExpandableListView expandableListView;
     private String logoUrl;
     private LinearLayout heroLinearLayout,playerLinearLayout,nearLinearLayout;
+    private TeamAdapter teamAdapter;
 
     @Override
     public int setLayout() {
@@ -72,6 +75,7 @@ public class DiscoveryFragment extends BaseFragment implements View.OnClickListe
         nearLinearLayout = bindView(R.id.discovery_near_ll);
         fatherData = new ArrayList<>();
         sonData = new ArrayList<>();
+        teamAdapter = new TeamAdapter(getContext());
     }
 
     @Override
@@ -80,8 +84,12 @@ public class DiscoveryFragment extends BaseFragment implements View.OnClickListe
         getHeroData();
         getExpandLvData();
         getSecondIntent();
+        teamAdapter.setMyClickListener(this);
+
 
     }
+
+
 
     private void getSecondIntent() {
         heroLinearLayout.setOnClickListener(this);
@@ -153,11 +161,12 @@ public class DiscoveryFragment extends BaseFragment implements View.OnClickListe
             @Override
             public void onSuccess(TeamBean response) {
                 List<TeamBean.ClubsBean> data = response.getClubs();
-                TeamAdapter adapter = new TeamAdapter(getContext());
-                adapter.setData(data);
-                rv.setAdapter(adapter);
+
+                teamAdapter.setData(data);
+                rv.setAdapter(teamAdapter);
                 LinearLayoutManager manager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
                 rv.setLayoutManager(manager);
+
             }
 
             @Override
@@ -184,5 +193,11 @@ public class DiscoveryFragment extends BaseFragment implements View.OnClickListe
                 startActivity(intent2);
                 break;
         }
+    }
+
+    @Override
+    public void MyListener(int pos) {
+        Intent intent = new Intent(getContext(), TeamSecondActivity.class);
+        startActivity(intent);
     }
 }
