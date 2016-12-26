@@ -1,5 +1,6 @@
 package com.naruto.b_pocketnewlol.me;
 
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
 import android.support.annotation.NonNull;
@@ -26,7 +27,7 @@ public class DrawerActivity extends BaseActivity implements View.OnClickListener
 
     private NavigationView navigationView;
     private DrawerLayout drawerLayout;
-    private Button btn;
+    private Button btn,inOut;
 
 
     @Override
@@ -39,7 +40,9 @@ public class DrawerActivity extends BaseActivity implements View.OnClickListener
         navigationView = bindView(R.id.drawer_nv);
         drawerLayout = bindView(R.id.dl);
         btn = bindView(R.id.btn);
+        inOut = bindView(R.id.btn_map);
         btn.setOnClickListener(this);
+        inOut.setOnClickListener(this);
 
     }
 
@@ -82,6 +85,10 @@ public class DrawerActivity extends BaseActivity implements View.OnClickListener
             case R.id.btn:
                 drawerLayout.openDrawer(Gravity.LEFT);
                 Snackbar.make(btn,"恭喜你,登录成功",1000).show();
+                break;
+            case R.id.btn_map:
+                Intent intent = new Intent(DrawerActivity.this,MapActivity.class);
+                startActivity(intent);
                 break;
         }
     }
