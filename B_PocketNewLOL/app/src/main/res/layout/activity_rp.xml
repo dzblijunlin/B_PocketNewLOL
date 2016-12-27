@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context="com.naruto.b_pocketnewlol.news.coustomrefresh.RPActivity">
 
+
     <com.naruto.b_pocketnewlol.news.coustomrefresh.RefreshHeaderView
         android:id="@id/swipe_refresh_header"
         android:layout_width="match_parent"

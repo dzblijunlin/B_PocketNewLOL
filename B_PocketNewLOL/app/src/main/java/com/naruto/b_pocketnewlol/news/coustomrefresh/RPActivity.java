@@ -1,6 +1,10 @@
 package com.naruto.b_pocketnewlol.news.coustomrefresh;
 
 
+import android.content.Intent;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.android.volley.RequestQueue;
@@ -14,7 +18,12 @@ import com.aspsine.swipetoloadlayout.SwipeToLoadLayout;
 import com.google.gson.Gson;
 import com.naruto.b_pocketnewlol.R;
 import com.naruto.b_pocketnewlol.base.BaseActivity;
+import com.naruto.b_pocketnewlol.news.maps.Map2Activity;
+import com.naruto.b_pocketnewlol.news.maps.MapTextActivity;
 import com.naruto.b_pocketnewlol.tools.UrlTools;
+
+import cn.sharesdk.framework.ShareSDK;
+import cn.sharesdk.onekeyshare.OnekeyShare;
 
 public class RPActivity extends BaseActivity implements OnRefreshListener, OnLoadMoreListener {
 
@@ -39,13 +48,66 @@ public class RPActivity extends BaseActivity implements OnRefreshListener, OnLoa
 
         lv = (ListView) findViewById(R.id.swipe_target);
         adapter = new KnowledgeAdapter();
-        lv.setAdapter(adapter);
-        getNetData();
 
+        View view = LayoutInflater.from(this).inflate(R.layout.into_map,null);
+        Button btnText = (Button) view.findViewById(R.id.btn_map_text);
+        Button btnImg = (Button) view.findViewById(R.id.btn_map);
+        Button btnShare = (Button) view.findViewById(R.id.btn_share);
+        lv.addHeaderView(view);
+        btnText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(RPActivity.this, MapTextActivity.class);
+                startActivity(intent);
+            }
+        });
+        btnImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(RPActivity.this,Map2Activity.class);
+                startActivity(intent);
+            }
+        });
+        btnShare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showShare();
+            }
+        });
+
+    }
+
+    private void showShare() {
+        ShareSDK.initSDK(this);
+        OnekeyShare oks = new OnekeyShare();
+//关闭sso授权
+        oks.disableSSOWhenAuthorize();
+
+// title标题，印象笔记、邮箱、信息、微信、人人网和QQ空间等使用
+        oks.setTitle("标题");
+// titleUrl是标题的网络链接，QQ和QQ空间等使用
+        oks.setTitleUrl("http://sharesdk.cn");
+// text是分享文本，所有平台都需要这个字段
+        oks.setText("我是分享文本");
+// imagePath是图片的本地路径，Linked-In以外的平台都支持此参数
+//oks.setImagePath("/sdcard/test.jpg");//确保SDcard下面存在此张图片
+// url仅在微信（包括好友和朋友圈）中使用
+        oks.setUrl("http://sharesdk.cn");
+// comment是我对这条分享的评论，仅在人人网和QQ空间使用
+        oks.setComment("我是测试评论文本");
+// site是分享此内容的网站名称，仅在QQ空间使用
+        oks.setSite(getString(R.string.app_name));
+// siteUrl是分享此内容的网站地址，仅在QQ空间使用
+        oks.setSiteUrl("http://sharesdk.cn");
+
+// 启动分享GUI
+        oks.show(this);
     }
 
     @Override
     public void initData() {
+        lv.setAdapter(adapter);
+        getNetData();
     }
 
     private void getNetData() {

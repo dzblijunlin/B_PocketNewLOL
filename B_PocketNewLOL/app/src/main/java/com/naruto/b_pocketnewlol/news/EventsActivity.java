@@ -1,6 +1,7 @@
 package com.naruto.b_pocketnewlol.news;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +18,7 @@ import com.naruto.b_pocketnewlol.base.BaseActivity;
 import com.naruto.b_pocketnewlol.entity.NetTool;
 import com.naruto.b_pocketnewlol.entity.onHttpCallBack;
 import com.naruto.b_pocketnewlol.news.coustomrefresh.RPActivity;
+import com.xys.libzxing.zxing.activity.CaptureActivity;
 
 import java.util.List;
 
@@ -28,6 +30,8 @@ public class EventsActivity extends BaseActivity {
     private LRecyclerView recyclerView;
     private LRecyclerViewAdapter lRecyclerViewAdapter;
     private int i = 0;
+    private ImageView scan;
+    private TextView tvFind;
 
     private ImageView img;
     private ImageView imgOne, imgTwo, imgThree, imgFour;
@@ -44,6 +48,8 @@ public class EventsActivity extends BaseActivity {
         lRecyclerViewAdapter = new LRecyclerViewAdapter(adapter);
         recyclerView = (LRecyclerView) findViewById(R.id.ev_rl);
 
+        scan = (ImageView) findViewById(R.id.scan);
+        tvFind = (TextView) findViewById(R.id.event_tv);
     }
 
     @Override
@@ -89,6 +95,27 @@ public class EventsActivity extends BaseActivity {
             }
         });
 
+
+
+        /////////////////////////扫码
+        scan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(EventsActivity.this,CaptureActivity.class);
+                startActivityForResult(intent,0);
+            }
+        });
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK){
+            Bundle bundle = data.getExtras();
+            String result = bundle.getString("result");
+            tvFind.setText(result);
+        }
     }
 
     private void StartTop(String url) {

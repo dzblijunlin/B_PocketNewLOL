@@ -47,13 +47,14 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.MyTeamViewHold
     }
 
     @Override
-    public void onBindViewHolder(final MyTeamViewHolder holder, int position) {
+    public void onBindViewHolder(final MyTeamViewHolder holder, final int position) {
         Glide.with(context).load(data.get(position).getIconUrl()).into(holder.iv);
         holder.tv.setText(data.get(position).getName());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                myClickListener.MyListener(holder.getAdapterPosition());
+                String id = data.get(position).getId();
+                myClickListener.MyListener(holder.getAdapterPosition(),id);
             }
         });
 
