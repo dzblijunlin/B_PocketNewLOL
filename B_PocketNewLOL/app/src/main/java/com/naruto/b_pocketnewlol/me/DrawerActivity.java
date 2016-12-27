@@ -87,8 +87,8 @@ public class DrawerActivity extends BaseActivity implements View.OnClickListener
                 Snackbar.make(btn,"恭喜你,登录成功",1000).show();
                 break;
             case R.id.btn_map:
-                Intent intent = new Intent(DrawerActivity.this,MapActivity.class);
-                startActivity(intent);
+//                Intent intent = new Intent(DrawerActivity.this,MapActivity.class);
+//                startActivity(intent);
                 break;
         }
     }

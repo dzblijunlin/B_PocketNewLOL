@@ -88,7 +88,6 @@ public class MeAllLiveFragment extends BaseFragment {
     }
 
     public String url(int i) {
-
         String allUrl = UrlTools.ME_ALL_HEAD + (i+1) + UrlTools.ME_ALL_FOOTER;
         return allUrl;
     }
