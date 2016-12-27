@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="170dp"
+    android:layout_height="wrap_content"
+    android:background="#fff"
+    android:layout_margin="5dp">
+
+    <ImageView
+        android:id="@+id/foot_img"
+        android:scaleType="fitXY"
+        android:layout_width="170dp"
+        android:layout_height="110dp" />
+
+    <TextView
+        android:id="@+id/foot_title"
+        android:text="最强联盟:妹夫大神亚洲飘逸无缝连接大招二连"
+        android:textColor="#000"
+        android:textSize="18sp"
+        android:layout_below="@+id/foot_img"
+        android:layout_margin="5dp"
+        android:lines="2"
+        android:ellipsize="end"
+        android:maxEms="8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/foot_author"
+        android:text="英雄联盟精彩视频"
+        android:textColor="#fff"
+        android:layout_above="@+id/foot_title"
+        android:layout_margin="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/foot_time"
+        android:layout_below="@+id/foot_title"
+        android:layout_margin="5dp"
+        android:text="12月22日 16:00"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:text="播放"
+        android:layout_below="@+id/foot_title"
+        android:layout_toRightOf="@+id/foot_time"
+        android:gravity="right"
+        android:layout_margin="5dp"
+        android:textColor="#f79a28"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</RelativeLayout>

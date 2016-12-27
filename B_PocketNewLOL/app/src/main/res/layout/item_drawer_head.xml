@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/img"
+        android:src="@mipmap/pingfan"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_centerVertical="true"
+        android:paddingTop="@dimen/dp_10"
+        android:paddingLeft="10dp"/>
+    <ImageView
+        android:id="@+id/card"
+        android:src="@drawable/checked_drawer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:paddingRight="20dp"/>
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="铁杵磨成针"
+        android:paddingTop="5dp"
+        android:textColor="#fff"
+        android:layout_marginLeft="@dimen/dp_10"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="70dp"
+        android:text="凡凡来针灸"
+        android:paddingTop="5dp"
+        android:textColor="#fff"
+        android:layout_marginLeft="@dimen/dp_10"/>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#000"
+        android:layout_marginLeft="@dimen/dp_10"/>
+
+
+</LinearLayout>

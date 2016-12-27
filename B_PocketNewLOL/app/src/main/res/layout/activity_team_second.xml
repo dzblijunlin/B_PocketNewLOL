@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_team_second"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context="com.naruto.b_pocketnewlol.discovery.activity.TeamSecondActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@mipmap/header_bg_big">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_10">
+            <ImageView
+                android:id="@+id/discovery_team_follow_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/add_follow_noraml"
+                android:layout_alignParentRight="true"/>
+            <TextView
+                android:id="@+id/discovery_team_name_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="EDG"
+                android:textColor="#D3BF8D"
+                android:textSize="18sp"
+                android:layout_centerInParent="true"/>
+            <ImageView
+                android:id="@+id/discovery_team_back_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/nav_back_normal"/>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="@dimen/dp_10">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/discovery_team_photo_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_launcher"
+                />
+            <TextView
+                android:id="@+id/discovery_team_name_small_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="EDG"
+                android:textColor="#FFF"
+                android:textSize="15sp"
+                android:layout_gravity="center_vertical"/>
+
+
+
+        </LinearLayout>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/discovery_team_num_rv"
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+
+        </android.support.v7.widget.RecyclerView>
+    </LinearLayout>
+    <android.support.design.widget.TabLayout
+        android:id="@+id/discovery_team_num_tab"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+    </android.support.design.widget.TabLayout>
+    <android.support.v4.view.ViewPager
+        android:id="@+id/discovery_team_content_vp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </android.support.v4.view.ViewPager>
+
+    <!--<com.github.jdsjlzx.recyclerview.LRecyclerView-->
+        <!--android:id="@+id/discovery_team_content_rv"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent">-->
+    <!--</com.github.jdsjlzx.recyclerview.LRecyclerView>-->
+</LinearLayout>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#EFEFF0">
+<LinearLayout
+    android:layout_width="0dp"
+    android:layout_weight="1"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_marginTop="15dp"
+    android:layout_marginBottom="15dp"
+    android:layout_marginLeft="@dimen/dp_10">
+    <ImageView
+        android:id="@+id/discovery_game_son_one_iv"
+        android:layout_width="23dp"
+        android:layout_height="23dp"
+        android:src="@mipmap/ic_launcher"/>
+    <TextView
+        android:id="@+id/discovery_game_son_one_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="123"
+        android:textSize="@dimen/sp_14"
+        android:textColor="#000"
+        android:layout_marginTop="5dp"/>
+</LinearLayout>
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="@dimen/dp_10">
+        <ImageView
+            android:id="@+id/discovery_game_son_two_iv"
+            android:layout_width="23dp"
+            android:layout_height="23dp"
+            android:src="@mipmap/ic_launcher"/>
+        <TextView
+            android:id="@+id/discovery_game_son_two_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="123"
+            android:textSize="@dimen/sp_14"
+            android:textColor="#000"
+            android:layout_marginTop="5dp"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="@dimen/dp_10">
+        <ImageView
+            android:id="@+id/discovery_game_son_three_iv"
+            android:layout_width="23dp"
+            android:layout_height="23dp"
+            android:src="@mipmap/ic_launcher"/>
+        <TextView
+            android:id="@+id/discovery_game_son_three_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="123"
+            android:textSize="@dimen/sp_14"
+            android:textColor="#000"
+            android:layout_marginTop="5dp"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:weightSum="2"
+    android:layout_marginTop="15dp">
+
+
+    <RelativeLayout
+        android:id="@+id/rl_one"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_margin="5dp"
+        android:layout_weight="1"
+        android:background="#00bfc8">
+
+        <ImageView
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            android:src="@mipmap/bb" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="赛事"
+            android:textColor="#fff"
+            android:textSize="15sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_two"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_margin="5dp"
+        android:layout_weight="1"
+        android:background="#82c13d">
+
+        <ImageView
+            android:scaleType="centerCrop"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:src="@mipmap/aa" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="视频"
+            android:textColor="#fff"
+            android:textSize="15sp" />
+    </RelativeLayout>
+
+
+</LinearLayout>

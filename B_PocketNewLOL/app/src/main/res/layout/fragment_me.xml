@@ -1,13 +1,55 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/me_content"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
+    android:descendantFocusability="blocksDescendants">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/collapsing_me"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:collapsedTitleGravity="center"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <com.youth.banner.Banner
+                android:id="@+id/banner_me"
+                android:layout_width="match_parent"
+                android:layout_height="200dp" />
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <android.support.design.widget.TabLayout
+                android:id="@+id/tab_me"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="8.5"
+                app:tabMode="scrollable" />
+
+            <ImageView
+                android:id="@+id/me_add"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@mipmap/shouye_icon_tianjia" />
+        </LinearLayout>
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_me"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="456" />
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
-</FrameLayout>
+
+</android.support.design.widget.CoordinatorLayout>
+
