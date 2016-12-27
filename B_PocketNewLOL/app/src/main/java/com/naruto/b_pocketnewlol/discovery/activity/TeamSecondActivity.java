@@ -59,9 +59,9 @@ public class TeamSecondActivity extends BaseActivity {
         NetTool.getInstance().startRequest(url, TeamNumPhotoBean.class, new onHttpCallBack<TeamNumPhotoBean>() {
             @Override
             public void onSuccess(TeamNumPhotoBean response) {
-                data = response.getMembers();
+                // data = response.getMembers();
                 Log.d("aaaa", "data:" + data);
-                adapter.setData(data);
+                adapter.setData(response.getMembers());
 
                 adapter = new TeamPhotoAdapter(TeamSecondActivity.this);
                 lRecyclerViewAdapter = new LRecyclerViewAdapter(adapter);
