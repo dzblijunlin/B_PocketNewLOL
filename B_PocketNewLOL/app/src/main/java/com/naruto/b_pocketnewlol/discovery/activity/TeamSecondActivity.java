@@ -6,7 +6,11 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.github.jdsjlzx.recyclerview.LRecyclerView;
 import com.github.jdsjlzx.recyclerview.LRecyclerViewAdapter;
 import com.github.jdsjlzx.recyclerview.ProgressStyle;
@@ -30,6 +34,8 @@ public class TeamSecondActivity extends BaseActivity {
     private TeamPhotoAdapter adapter;
     private String id;
     private int pos;
+    private TextView titleTv, nameTv;
+    private ImageView nameIv,backIv;
 
     @Override
     public int setLayout() {
@@ -42,23 +48,40 @@ public class TeamSecondActivity extends BaseActivity {
         data = new ArrayList<>();
 //        rv.setRefreshProgressStyle(ProgressStyle.BallSpinFadeLoader);
         adapter = new TeamPhotoAdapter(TeamSecondActivity.this);
+        titleTv = bindView(R.id.discovery_team_title_tv);
+        nameTv = bindView(R.id.discovery_team_name_tv);
+        nameIv = bindView(R.id.discovery_team_photo_iv);
+        backIv = bindView(R.id.discovery_team_back_iv);
     }
 
     @Override
     public void initData() {
         getTeamPhoto();
+        getTeamName();
+        getBack();
+    }
 
-//                lRecyclerViewAdapter = new LRecyclerViewAdapter(adapter);
-        rv.setAdapter(adapter);
-        LinearLayoutManager manager = new LinearLayoutManager(TeamSecondActivity.this, LinearLayoutManager.HORIZONTAL, false);
-        rv.setLayoutManager(manager);
+    private void getBack() {
+        backIv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+    }
 
+    private void getTeamName() {
+        Intent intent = getIntent();
+        String photo = intent.getStringExtra("photo");
+        String name = intent.getStringExtra("name");
+        Glide.with(this).load(photo).into(nameIv);
+        titleTv.setText(name);
+        nameTv.setText(name);
     }
 
     private void getTeamPhoto() {
         Intent intent = getIntent();
         id = intent.getStringExtra("id");
-
         pos = intent.getIntExtra("pos", 0);
         String url = UrlTools.DISCOVERY_TEAM_NUM_PHOTO_HEAD + id + UrlTools.DISCOVERY_TEAM_NUM_PHOTO_TAIL;
 
@@ -66,8 +89,10 @@ public class TeamSecondActivity extends BaseActivity {
             @Override
             public void onSuccess(TeamNumPhotoBean response) {
                 data = response.getMembers();
-
                 adapter.setData(data);
+                rv.setAdapter(adapter);
+                LinearLayoutManager manager = new LinearLayoutManager(TeamSecondActivity.this, LinearLayoutManager.HORIZONTAL, false);
+                rv.setLayoutManager(manager);
 
 
             }

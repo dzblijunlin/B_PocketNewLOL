@@ -46,6 +46,7 @@ public class DiscoveryFragment extends BaseFragment implements View.OnClickListe
     private String logoUrl;
     private LinearLayout heroLinearLayout,playerLinearLayout,nearLinearLayout;
     private TeamAdapter teamAdapter;
+    private List<TeamBean.ClubsBean> data;
 
     @Override
     public int setLayout() {
@@ -161,8 +162,7 @@ public class DiscoveryFragment extends BaseFragment implements View.OnClickListe
         NetTool.getInstance().startRequest(url, TeamBean.class, new onHttpCallBack<TeamBean>() {
             @Override
             public void onSuccess(TeamBean response) {
-                List<TeamBean.ClubsBean> data = response.getClubs();
-
+                data = response.getClubs();
                 teamAdapter.setData(data);
                 rv.setAdapter(teamAdapter);
                 LinearLayoutManager manager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
@@ -201,6 +201,8 @@ public class DiscoveryFragment extends BaseFragment implements View.OnClickListe
         Intent intent = new Intent(getContext(), TeamSecondActivity.class);
         intent.putExtra("pos",pos);
         intent.putExtra("id",id);
+        intent.putExtra("photo",data.get(pos).getIconUrl());
+        intent.putExtra("name",data.get(pos).getName());
         startActivity(intent);
     }
 }
