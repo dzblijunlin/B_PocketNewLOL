@@ -92,10 +92,12 @@ public class DrawerActivity extends BaseActivity implements View.OnClickListener
             case R.id.btn_map:
 //                Intent intent = new Intent(DrawerActivity.this,MapActivity.class);
 //                startActivity(intent);
+
                 break;
             case R.id.btn_tantan:
                 Intent intent = new Intent(DrawerActivity.this,CardActivity.class);
                 startActivity(intent);
+
                 break;
         }
     }
