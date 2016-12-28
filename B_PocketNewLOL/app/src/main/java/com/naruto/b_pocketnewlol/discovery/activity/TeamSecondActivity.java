@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
 import com.github.jdsjlzx.recyclerview.LRecyclerView;
@@ -23,9 +24,9 @@ import java.util.List;
 public class TeamSecondActivity extends BaseActivity {
 
     private List<TeamNumPhotoBean.MembersBean> data;
-    private LRecyclerView rv;
-    private LRecyclerViewAdapter lRecyclerViewAdapter;
-
+    //    private LRecyclerView rv;
+//    private LRecyclerViewAdapter lRecyclerViewAdapter;
+    private RecyclerView rv;
     private TeamPhotoAdapter adapter;
     private String id;
     private int pos;
@@ -39,35 +40,35 @@ public class TeamSecondActivity extends BaseActivity {
     public void initView() {
         rv = bindView(R.id.discovery_team_num_rv);
         data = new ArrayList<>();
-        rv.setRefreshProgressStyle(ProgressStyle.BallSpinFadeLoader);
-
+//        rv.setRefreshProgressStyle(ProgressStyle.BallSpinFadeLoader);
+        adapter = new TeamPhotoAdapter(TeamSecondActivity.this);
     }
 
     @Override
     public void initData() {
         getTeamPhoto();
 
+//                lRecyclerViewAdapter = new LRecyclerViewAdapter(adapter);
+        rv.setAdapter(adapter);
+        LinearLayoutManager manager = new LinearLayoutManager(TeamSecondActivity.this, LinearLayoutManager.HORIZONTAL, false);
+        rv.setLayoutManager(manager);
+
     }
 
     private void getTeamPhoto() {
         Intent intent = getIntent();
         id = intent.getStringExtra("id");
-        Log.d("iii", id);
-        pos = intent.getIntExtra("pos",0);
+
+        pos = intent.getIntExtra("pos", 0);
         String url = UrlTools.DISCOVERY_TEAM_NUM_PHOTO_HEAD + id + UrlTools.DISCOVERY_TEAM_NUM_PHOTO_TAIL;
-        Log.d("qqq", url);
+
         NetTool.getInstance().startRequest(url, TeamNumPhotoBean.class, new onHttpCallBack<TeamNumPhotoBean>() {
             @Override
             public void onSuccess(TeamNumPhotoBean response) {
-                // data = response.getMembers();
-                Log.d("aaaa", "data:" + data);
-                adapter.setData(response.getMembers());
+                data = response.getMembers();
 
-                adapter = new TeamPhotoAdapter(TeamSecondActivity.this);
-                lRecyclerViewAdapter = new LRecyclerViewAdapter(adapter);
-                rv.setAdapter(lRecyclerViewAdapter);
-                LinearLayoutManager manager = new LinearLayoutManager(TeamSecondActivity.this,LinearLayoutManager.HORIZONTAL,false);
-                rv.setLayoutManager(manager);
+                adapter.setData(data);
+
 
             }
 
