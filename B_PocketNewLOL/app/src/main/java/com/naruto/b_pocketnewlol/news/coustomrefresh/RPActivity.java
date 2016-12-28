@@ -20,6 +20,7 @@ import com.naruto.b_pocketnewlol.R;
 import com.naruto.b_pocketnewlol.base.BaseActivity;
 import com.naruto.b_pocketnewlol.news.maps.Map2Activity;
 import com.naruto.b_pocketnewlol.news.maps.MapTextActivity;
+import com.naruto.b_pocketnewlol.news.play.PlayActivity;
 import com.naruto.b_pocketnewlol.tools.UrlTools;
 
 import cn.sharesdk.framework.ShareSDK;
@@ -53,6 +54,8 @@ public class RPActivity extends BaseActivity implements OnRefreshListener, OnLoa
         Button btnText = (Button) view.findViewById(R.id.btn_map_text);
         Button btnImg = (Button) view.findViewById(R.id.btn_map);
         Button btnShare = (Button) view.findViewById(R.id.btn_share);
+        Button btnPlay = (Button) view.findViewById(R.id.btn_play);
+
         lv.addHeaderView(view);
         btnText.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,6 +75,13 @@ public class RPActivity extends BaseActivity implements OnRefreshListener, OnLoa
             @Override
             public void onClick(View view) {
                 showShare();
+            }
+        });
+        btnPlay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(RPActivity.this, PlayActivity.class);
+                startActivity(intent);
             }
         });
 
