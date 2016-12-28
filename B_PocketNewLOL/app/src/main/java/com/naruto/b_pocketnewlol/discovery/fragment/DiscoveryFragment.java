@@ -1,13 +1,15 @@
-package com.naruto.b_pocketnewlol.discovery;
+package com.naruto.b_pocketnewlol.discovery.fragment;
 
 
 
 
+import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ExpandableListView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,6 +17,11 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.naruto.b_pocketnewlol.R;
 import com.naruto.b_pocketnewlol.base.BaseFragment;
+import com.naruto.b_pocketnewlol.discovery.MyClickListener;
+import com.naruto.b_pocketnewlol.discovery.activity.HeroSecondActivity;
+import com.naruto.b_pocketnewlol.discovery.activity.NearSecondActivity;
+import com.naruto.b_pocketnewlol.discovery.activity.PlayerSecondActivity;
+import com.naruto.b_pocketnewlol.discovery.activity.TeamSecondActivity;
 import com.naruto.b_pocketnewlol.discovery.adapter.GameAdapter;
 import com.naruto.b_pocketnewlol.discovery.adapter.TeamAdapter;
 import com.naruto.b_pocketnewlol.discovery.bean.LogoBean;
@@ -29,7 +36,7 @@ import java.util.List;
 /**
  * 大嘴宝的任务
  */
-public class DiscoveryFragment extends BaseFragment {
+public class DiscoveryFragment extends BaseFragment implements View.OnClickListener, MyClickListener {
     private RecyclerView rv;
     private ImageView heroIv,playerIv,nearIv,pkIv,barIv,timeIv,picIv;
     private TextView heroTv,playerTv,nearTv,pkTv,barTv,timeTv,picTv;
@@ -37,7 +44,9 @@ public class DiscoveryFragment extends BaseFragment {
     private List<List<LogoBean.ListBean>> sonData;
     private ExpandableListView expandableListView;
     private String logoUrl;
-
+    private LinearLayout heroLinearLayout,playerLinearLayout,nearLinearLayout;
+    private TeamAdapter teamAdapter;
+    private List<TeamBean.ClubsBean> data;
 
     @Override
     public int setLayout() {
@@ -62,8 +71,12 @@ public class DiscoveryFragment extends BaseFragment {
         timeTv = bindView(R.id.discovery_time_tv);
         picIv = bindView(R.id.discovery_picture_iv);
         picTv = bindView(R.id.discovery_picture_tv);
+        heroLinearLayout = bindView(R.id.discovery_hero_ll);
+        playerLinearLayout = bindView(R.id.discovery_player_ll);
+        nearLinearLayout = bindView(R.id.discovery_near_ll);
         fatherData = new ArrayList<>();
         sonData = new ArrayList<>();
+        teamAdapter = new TeamAdapter(getContext());
     }
 
     @Override
@@ -71,6 +84,19 @@ public class DiscoveryFragment extends BaseFragment {
         getTeamData();
         getHeroData();
         getExpandLvData();
+        getSecondIntent();
+        teamAdapter.setMyClickListener(this);
+
+
+
+    }
+
+
+
+    private void getSecondIntent() {
+        heroLinearLayout.setOnClickListener(this);
+        playerLinearLayout.setOnClickListener(this);
+        nearLinearLayout.setOnClickListener(this);
     }
 
     private void getExpandLvData() {
@@ -136,12 +162,12 @@ public class DiscoveryFragment extends BaseFragment {
         NetTool.getInstance().startRequest(url, TeamBean.class, new onHttpCallBack<TeamBean>() {
             @Override
             public void onSuccess(TeamBean response) {
-                List<TeamBean.ClubsBean> data = response.getClubs();
-                TeamAdapter adapter = new TeamAdapter(getContext());
-                adapter.setData(data);
-                rv.setAdapter(adapter);
+                data = response.getClubs();
+                teamAdapter.setData(data);
+                rv.setAdapter(teamAdapter);
                 LinearLayoutManager manager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
                 rv.setLayoutManager(manager);
+
             }
 
             @Override
@@ -149,5 +175,34 @@ public class DiscoveryFragment extends BaseFragment {
 
             }
         });
+    }
+
+    @Override
+    public void onClick(View view) {
+
+        switch (view.getId()){
+            case R.id.discovery_hero_ll:
+                Intent intent = new Intent(getContext(), HeroSecondActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.discovery_player_ll:
+                Intent intent1 = new Intent(getContext(), PlayerSecondActivity.class);
+                startActivity(intent1);
+                break;
+            case R.id.discovery_near_ll:
+                Intent intent2 = new Intent(getContext(), NearSecondActivity.class);
+                startActivity(intent2);
+                break;
+        }
+    }
+
+    @Override
+    public void MyListener(int pos,String id) {
+        Intent intent = new Intent(getContext(), TeamSecondActivity.class);
+        intent.putExtra("pos",pos);
+        intent.putExtra("id",id);
+        intent.putExtra("photo",data.get(pos).getIconUrl());
+        intent.putExtra("name",data.get(pos).getName());
+        startActivity(intent);
     }
 }

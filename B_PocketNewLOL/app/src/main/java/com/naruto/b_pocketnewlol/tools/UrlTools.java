@@ -8,9 +8,11 @@ package com.naruto.b_pocketnewlol.tools;
 public class UrlTools {
     public static final String DISCOVERY_TEAM = "http://qt.qq.com/php_cgi/lol_mobile/club/varcache_team_entrancev2.php?plat=android&version=9709";
     public static final String DISCOVERY_LOGO = "http://qt.qq.com/static/pages/news/discovery/c21_index.js";
+    public static final String DISCOVERY_TEAM_NUM_PHOTO_HEAD = "http://qt.qq.com/php_cgi/lol_mobile/club/varcache_team_simple.php?id=";
+    public static final String DISCOVERY_TEAM_NUM_PHOTO_TAIL = "&membernum=10&plat=android&version=9713";
 
 
-
+// http://qt.qq.com/php_cgi/lol_mobile/club/varcache_team_simple.php?id=13&membernum=10&plat=android&version=9713
 
 
 
@@ -90,6 +92,32 @@ public class UrlTools {
     // http://api.m.panda.tv/index.php?method=category.list&type=game&__version=1.1.8.1405&__plat=android
     // 全部直播
     // http://api.m.panda.tv/ajax_live_lists?pageno=1&pagenum=20&status=2&order=person_num&sproom=1&__version=2.1.3.1585&__plat=android&banner=1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public static final String KNOWLEDGE_URL = "http://food.boohee.com/fb/v1/feeds/category_feed?page=1&category=3&per=10";
+    public static final String KNOWLEDGE_HEAD_URL = "http://food.boohee.com/fb/v1/feeds/category_feed?page=";
+    public static final String KNOWLEDGE_FOOT_URL = "&category=3&per=10";
+
 
 
 }

@@ -9,10 +9,12 @@ import android.widget.RadioButton;
 
 import com.naruto.b_pocketnewlol.R;
 import com.naruto.b_pocketnewlol.base.BaseActivity;
-import com.naruto.b_pocketnewlol.discovery.DiscoveryFragment;
+import com.naruto.b_pocketnewlol.discovery.fragment.DiscoveryFragment;
 import com.naruto.b_pocketnewlol.friend.FriendFragment;
 import com.naruto.b_pocketnewlol.me.MeFragment;
 import com.naruto.b_pocketnewlol.news.NewsFragment;
+
+import cn.sharesdk.framework.ShareSDK;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
 
@@ -29,6 +31,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         friendRbt = bindView(R.id.rbt_friend_main);
         discoveryRbt = bindView(R.id.rbt_discovery_main);
         meRbt = bindView(R.id.rbt_me_main);
+        ShareSDK.initSDK(this);
     }
 
     @Override
