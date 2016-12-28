@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="270dp"
+    android:layout_height="330dp"
+    android:clickable="true"
+    android:foreground="?android:attr/selectableItemBackground"
+    app:cardBackgroundColor="#fff">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+    <ImageView
+        android:id="@+id/iv_imageUrl"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:src="@mipmap/ic_launcher"/>
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/iv_imageUrl"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:text="啦啦"/>
+
+        <TextView
+            android:id="@+id/tv_shareDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_title"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:textSize="10dp"
+            android:text="哈哈"/>
+
+
+        <TextView
+            android:id="@+id/tv_viewCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:paddingBottom="10dp"
+            android:textColor="#126806"
+            android:textStyle="bold"
+            android:text="12345"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toLeftOf="@id/tv_viewCount"
+            android:paddingBottom="10dp"
+            android:text="已有"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@id/tv_viewCount"
+            android:paddingBottom="10dp"
+            android:text="人参与"/>
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_my_login_border"
+            android:text="欢迎来到英雄联盟"
+            android:textColor="#f0f"
+            android:layout_above="@+id/tv_viewCount"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="15dp"
+            android:id="@+id/button" />
+
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>
