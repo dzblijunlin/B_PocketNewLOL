@@ -24,6 +24,12 @@
             android:layout_height="wrap_content"
             android:text="让我们进入地图吧"
             />
+        <Button
+            android:id="@+id/btn_tantan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="卡片世界"
+            />
 
     </LinearLayout>
 
