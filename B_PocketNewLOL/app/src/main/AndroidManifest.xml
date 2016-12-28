@@ -147,6 +147,7 @@
         <activity android:name=".news.coustomrefresh.RPActivity" />
         <activity android:name=".discovery.activity.TeamSecondActivity" />
         <activity android:name=".me.MapActivity" />
+        <activity android:name=".me.card.CardActivity"/>
         <activity android:name=".news.maps.MapTextActivity" />
         <activity android:name=".news.maps.Map2Activity" />
 

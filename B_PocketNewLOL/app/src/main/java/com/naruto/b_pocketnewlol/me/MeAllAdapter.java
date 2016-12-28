@@ -32,7 +32,6 @@ public class MeAllAdapter extends RecyclerView.Adapter<MeAllAdapter.AllViewHolde
     // 清除
     public void Clear(){
         data.clear();
-
     }
 
     public void setData(List<MeAllLiveBean.DataBean.ItemsBean> data) {

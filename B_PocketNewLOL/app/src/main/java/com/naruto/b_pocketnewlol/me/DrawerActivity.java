@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.naruto.b_pocketnewlol.R;
 import com.naruto.b_pocketnewlol.base.BaseActivity;
+import com.naruto.b_pocketnewlol.me.card.CardActivity;
 
 /**
  * 看这里,很强势!
@@ -27,7 +28,7 @@ public class DrawerActivity extends BaseActivity implements View.OnClickListener
 
     private NavigationView navigationView;
     private DrawerLayout drawerLayout;
-    private Button btn,inOut;
+    private Button btn,inOut,cardBtn;
 
 
     @Override
@@ -41,8 +42,10 @@ public class DrawerActivity extends BaseActivity implements View.OnClickListener
         drawerLayout = bindView(R.id.dl);
         btn = bindView(R.id.btn);
         inOut = bindView(R.id.btn_map);
+        cardBtn = bindView(R.id.btn_tantan);
         btn.setOnClickListener(this);
         inOut.setOnClickListener(this);
+        cardBtn.setOnClickListener(this);
 
     }
 
@@ -87,7 +90,11 @@ public class DrawerActivity extends BaseActivity implements View.OnClickListener
                 Snackbar.make(btn,"恭喜你,登录成功",1000).show();
                 break;
             case R.id.btn_map:
-                Intent intent = new Intent(DrawerActivity.this,MapActivity.class);
+//                Intent intent = new Intent(DrawerActivity.this,MapActivity.class);
+//                startActivity(intent);
+                break;
+            case R.id.btn_tantan:
+                Intent intent = new Intent(DrawerActivity.this,CardActivity.class);
                 startActivity(intent);
                 break;
         }
