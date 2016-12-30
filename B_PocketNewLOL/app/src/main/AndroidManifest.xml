@@ -138,6 +138,8 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
 
+
+        
             <!-- 新浪微博客户端分享回调必须配置 -->
             <intent-filter>
                 <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY" />
@@ -184,8 +186,12 @@
         <!-- 定位需要的服务 -->
         <service android:name="com.amap.api.location.APSService" />
 
+
         <activity android:name=".news.play.PlayActivity" />
         <activity android:name=".discovery.activity.PictureSecondActivity"></activity>
+
+
+
     </application>
 
 </manifest>

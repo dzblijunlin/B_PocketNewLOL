@@ -7,7 +7,6 @@ package com.naruto.b_pocketnewlol.tools;
 
 public class UrlTools {
     public static final String DISCOVERY_TEAM = "http://qt.qq.com/php_cgi/lol_mobile/club/varcache_team_entrancev2.php?plat=android&version=9709";
-
     public static final String DISCOVERY_LOGO = "http://qt.qq.com/static/pages/news/discovery/c21_index.js";
     public static final String DISCOVERY_TEAM_NUM_PHOTO_HEAD = "http://qt.qq.com/php_cgi/lol_mobile/club/varcache_team_simple.php?id=";
     public static final String DISCOVERY_TEAM_NUM_PHOTO_TAIL = "&membernum=10&plat=android&version=9713";
