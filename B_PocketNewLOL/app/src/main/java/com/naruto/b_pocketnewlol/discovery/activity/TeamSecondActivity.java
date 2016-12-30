@@ -48,9 +48,9 @@ public class TeamSecondActivity extends BaseActivity {
     private ImageView nameIv, backIv;
     // 卡片
     RecyclerView cardRv;
-    CommonAdapter<TeamCardBean.DataBean.ListBean> cardAdapter;
-    List<TeamCardBean.DataBean.ListBean> cardData;
-    private String url = "http://c.open.163.com/mob/classBreak/homeList.do?queryType=1,2,3";
+    CommonAdapter<TeamCardBean.ListBean> cardAdapter;
+    List<TeamCardBean.ListBean> cardData;
+    private String url = "http://qt.qq.com/php_cgi/news/php/varcache_clubnews.php?channel=news&clubid=13&page=0&plat=android&version=9713";
 
     @Override
     public int setLayout() {
@@ -86,7 +86,7 @@ public class TeamSecondActivity extends BaseActivity {
         NetTool.getInstance().startRequest(url, TeamCardBean.class, new onHttpCallBack<TeamCardBean>() {
             @Override
             public void onSuccess(TeamCardBean response) {
-                cardData = response.getData().getList();
+                cardData = response.getList();
                 getData();
             }
 
@@ -105,7 +105,7 @@ public class TeamSecondActivity extends BaseActivity {
 
     private void getData() {
 
-        cardRv.setAdapter(cardAdapter = new CommonAdapter<TeamCardBean.DataBean.ListBean>(this, cardData, R.layout.item_team_card) {
+        cardRv.setAdapter(cardAdapter = new CommonAdapter<TeamCardBean.ListBean>(this, cardData, R.layout.item_team_card) {
             public static final String TAG = "zxt/Adapter";
 
             @Override
@@ -121,13 +121,14 @@ public class TeamSecondActivity extends BaseActivity {
             }
 
             @Override
-            public void convert(ViewHolder viewHolder, TeamCardBean.DataBean.ListBean listBean) {
+            public void convert(ViewHolder viewHolder, TeamCardBean.ListBean listBean) {
                 viewHolder.setText(R.id.tv_title, listBean.getTitle());
-                Log.d(TAG, listBean.getTitle());
-                viewHolder.setText(R.id.tv_shareDescription, listBean.getShareDescription());
-                viewHolder.setText(R.id.tv_viewCount, listBean.getViewCount() + "");
-                Glide.with(TeamSecondActivity.this).load(listBean.getImageUrl()).into((ImageView) viewHolder.getView(R.id.iv_imageUrl));
+                viewHolder.setText(R.id.tv_shareDescription,listBean.getSummary());
+                Glide.with(TeamSecondActivity.this).load(listBean.getImage_url_big()).into((ImageView) viewHolder.getView(R.id.iv_imageUrl));
             }
+
+
+
 
 
         });

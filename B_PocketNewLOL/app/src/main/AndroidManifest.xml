@@ -184,7 +184,8 @@
         <!-- 定位需要的服务 -->
         <service android:name="com.amap.api.location.APSService" />
 
-        <activity android:name=".news.play.PlayActivity"></activity>
+        <activity android:name=".news.play.PlayActivity" />
+        <activity android:name=".discovery.activity.PictureSecondActivity"></activity>
     </application>
 
 </manifest>

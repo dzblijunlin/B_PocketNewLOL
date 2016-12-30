@@ -58,19 +58,22 @@
             android:text="已有"/>
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
+            android:layout_height="wrap_content"
             android:layout_toRightOf="@id/tv_viewCount"
             android:paddingBottom="10dp"
             android:text="人参与"/>
 
 
         <Button
+
+
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/shape_my_login_border"
-            android:text="欢迎来到英雄联盟"
-            android:textColor="#f0f"
+            android:text="英雄联盟"
+            android:textColor="#ff0"
             android:layout_above="@+id/tv_viewCount"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="15dp"

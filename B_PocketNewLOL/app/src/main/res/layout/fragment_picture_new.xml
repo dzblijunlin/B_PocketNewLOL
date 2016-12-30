@@ -1,0 +1,28 @@
+<com.aspsine.swipetoloadlayout.SwipeToLoadLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipeToLoadLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.naruto.b_pocketnewlol.discovery.fragment.PictureNewFragment">
+    <!--自定义动画下拉刷新以及上拉加载不能更改ID-->
+    <com.naruto.b_pocketnewlol.discovery.PictureRefreshHeaderView
+        android:id="@+id/swipe_refresh_header"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="center"
+        android:scaleType="centerInside" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/swipe_target"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </android.support.v7.widget.RecyclerView>
+
+    <com.naruto.b_pocketnewlol.discovery.PictureLoadMoreFooterView
+        android:id="@+id/swipe_load_more_footer"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="center"
+        android:scaleType="centerInside" />
+</com.aspsine.swipetoloadlayout.SwipeToLoadLayout>

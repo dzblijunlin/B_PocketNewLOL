@@ -73,7 +73,9 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/discovery_team_rv"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@mipmap/club_welcome"
+        >
 
     </android.support.v7.widget.RecyclerView>
 </LinearLayout>
