@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
-import com.mcxtzhang.commonadapter.rv.CommonAdapter;
+import com.mcxtzhang.commonadapter.rv.CommonAdapter;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
 import com.mcxtzhang.commonadapter.rv.ViewHolder;
 import com.mcxtzhang.layoutmanager.swipecard.CardConfig;
 import com.mcxtzhang.layoutmanager.swipecard.OverLayCardLayoutManager;
