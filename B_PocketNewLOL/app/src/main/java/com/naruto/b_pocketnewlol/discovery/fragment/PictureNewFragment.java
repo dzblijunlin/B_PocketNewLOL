@@ -60,4 +60,5 @@ public class PictureNewFragment extends BaseFragment implements OnRefreshListene
     public void onLoadMore() {
 
     }
+
 }
