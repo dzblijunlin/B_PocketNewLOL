@@ -43,10 +43,17 @@ public class CycleAdapter extends RecyclerView.Adapter<CycleAdapter.CycleViewHol
 
     private List<CycleBean.ListBean> data;
     private Context context;
+    private MyClick myClick;
+
+    public void setMyClick(MyClick myClick) {
+        this.myClick = myClick;
+        notifyDataSetChanged();
+    }
 
     public CycleAdapter(Context context) {
         this.context = context;
         data = new ArrayList<>();
+        notifyDataSetChanged();
     }
 
     public void setData(List<CycleBean.ListBean> data) {
@@ -67,17 +74,24 @@ public class CycleAdapter extends RecyclerView.Adapter<CycleAdapter.CycleViewHol
     }
 
     @Override
-    public void onBindViewHolder(CycleViewHolder holder, int position) {
+    public void onBindViewHolder(CycleViewHolder holder, final int position) {
         Glide.with(context).load(data.get(position).getImage_url_small()).into(holder.img);
         holder.tvTitle.setText(data.get(position).getTitle());
         holder.tvS.setText(data.get(position).getSummary());
         holder.tvDate.setText(data.get(position).getPublication_date());
         holder.tvPv.setText(data.get(position).getPv());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                myClick.MyListener(data.get(position).getArticle_url());
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
-        return data.size();
+        return data != null && data.size() > 0 ? data.size() : 0;
     }
 
     class CycleViewHolder extends RecyclerView.ViewHolder{
