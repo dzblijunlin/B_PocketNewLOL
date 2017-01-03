@@ -48,6 +48,11 @@ public class PictureNewRvAdapter extends RecyclerView.Adapter<PictureNewRvAdapte
         return data != null && data.size() > 0 ? data.size() : 0;
     }
 
+    public void addMore(List<PictureNewBean.WallpapersBean> datas){
+        data.addAll(datas);
+        notifyDataSetChanged();
+
+    }
     class MyPictureNewViewHolder extends RecyclerView.ViewHolder {
         private ImageView iv;
 

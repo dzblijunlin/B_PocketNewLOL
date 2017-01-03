@@ -16,12 +16,12 @@
         "source": "/Users/dllo/Desktop/GitDemo/B_PocketNewLOL/B_PocketNewLOL/vitamio/build/intermediates/bundles/debug/res/drawable-xhdpi-v4/scrubber_control_pressed_holo.png"
     },
     {
-        "merged": "/Users/dllo/Desktop/GitDemo/B_PocketNewLOL/B_PocketNewLOL/vitamio/build/intermediates/res/merged/androidTest/debug/drawable-xhdpi-v4/mediacontroller_pause.png",
-        "source": "/Users/dllo/Desktop/GitDemo/B_PocketNewLOL/B_PocketNewLOL/vitamio/build/intermediates/bundles/debug/res/drawable-xhdpi-v4/mediacontroller_pause.png"
-    },
-    {
         "merged": "/Users/dllo/Desktop/GitDemo/B_PocketNewLOL/B_PocketNewLOL/vitamio/build/intermediates/res/merged/androidTest/debug/drawable-xhdpi-v4/mediacontroller_play.png",
         "source": "/Users/dllo/Desktop/GitDemo/B_PocketNewLOL/B_PocketNewLOL/vitamio/build/intermediates/bundles/debug/res/drawable-xhdpi-v4/mediacontroller_play.png"
+    },
+    {
+        "merged": "/Users/dllo/Desktop/GitDemo/B_PocketNewLOL/B_PocketNewLOL/vitamio/build/intermediates/res/merged/androidTest/debug/drawable-xhdpi-v4/mediacontroller_pause.png",
+        "source": "/Users/dllo/Desktop/GitDemo/B_PocketNewLOL/B_PocketNewLOL/vitamio/build/intermediates/bundles/debug/res/drawable-xhdpi-v4/mediacontroller_pause.png"
     },
     {
         "merged": "/Users/dllo/Desktop/GitDemo/B_PocketNewLOL/B_PocketNewLOL/vitamio/build/intermediates/res/merged/androidTest/debug/drawable-xhdpi-v4/scrubber_control_disabled_holo.png",
