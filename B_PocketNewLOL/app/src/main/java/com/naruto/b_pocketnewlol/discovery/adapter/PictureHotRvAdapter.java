@@ -23,6 +23,7 @@ public class PictureHotRvAdapter extends RecyclerView.Adapter<PictureHotRvAdapte
     private List<PictureHotBean.WallpapersBean> data;
     private Context context;
     private ArrayList<Integer> heights;
+    private ArrayList<Integer> heights2;
 
     public PictureHotRvAdapter(Context context) {
         this.context = context;
@@ -52,7 +53,12 @@ public class PictureHotRvAdapter extends RecyclerView.Adapter<PictureHotRvAdapte
         // 获取缓存类中的TextView的信息
         ViewGroup.LayoutParams params = holder.iv.getLayoutParams();
         // 将集合中的某一个数值赋值给了Params对象
-        params.height = heights.get(position);
+        if (heights2 == null){
+
+            params.height = heights.get(position);
+        }else {
+            params.height = heights2.get(position);
+        }
         // 最后把新的高度给缓存类中的TextView
         holder.iv.setLayoutParams(params);
         Glide.with(context).load(data.get(position).getThumbUrl()).into(holder.iv);
@@ -66,6 +72,15 @@ public class PictureHotRvAdapter extends RecyclerView.Adapter<PictureHotRvAdapte
     public void addMore(List<PictureHotBean.WallpapersBean> datas){
         data.addAll(datas);
         notifyDataSetChanged();
+        heights2 = new ArrayList<>();
+        for (int i = 0; i < data.size(); i++) {
+            Random random = new Random();
+            int height = random.nextInt(900 - 200 + 1) + 200;
+            heights2.add(height);
+
+        }
+
+
     }
     class MyHotViewHolder extends RecyclerView.ViewHolder {
 
