@@ -13,7 +13,10 @@ import com.naruto.b_pocketnewlol.R;
  * Created by dllo on 16/11/30.
  */
 
-public class PictureLoadMoreFooterView extends ImageView implements SwipeTrigger, SwipeLoadMoreTrigger {
+public class
+
+
+PictureLoadMoreFooterView extends ImageView implements SwipeTrigger, SwipeLoadMoreTrigger {
 
 
     public PictureLoadMoreFooterView(Context context) {

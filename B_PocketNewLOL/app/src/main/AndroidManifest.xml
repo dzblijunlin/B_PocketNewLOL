@@ -107,13 +107,14 @@
             android:name="com.amap.api.v2.apikey"
             android:value="c9e8f2b58a86017410e1d97072524a6e" />
 
-        <activity android:name=".main.MainActivity">
+        <activity android:name=".discovery.activity.WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".main.MainActivity"/>
         <activity android:name=".friend.SearchFriendActivity" />
         <activity android:name=".friend.FriendDynamicActivity" />
         <activity android:name=".news.VideoActivity" />
