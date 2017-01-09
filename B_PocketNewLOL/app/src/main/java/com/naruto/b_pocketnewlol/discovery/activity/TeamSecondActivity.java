@@ -5,8 +5,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,13 +16,23 @@ import com.bumptech.glide.Glide;
 import com.github.jdsjlzx.recyclerview.LRecyclerView;
 import com.github.jdsjlzx.recyclerview.LRecyclerViewAdapter;
 import com.github.jdsjlzx.recyclerview.ProgressStyle;
+
+import com.mcxtzhang.commonadapter.rv.ViewHolder;
+import com.mcxtzhang.layoutmanager.swipecard.CardConfig;
+import com.mcxtzhang.layoutmanager.swipecard.OverLayCardLayoutManager;
 import com.naruto.b_pocketnewlol.R;
 import com.naruto.b_pocketnewlol.base.BaseActivity;
 import com.naruto.b_pocketnewlol.discovery.adapter.TeamPhotoAdapter;
+import com.naruto.b_pocketnewlol.discovery.bean.TeamCallback;
+import com.naruto.b_pocketnewlol.discovery.bean.TeamCardBean;
 import com.naruto.b_pocketnewlol.discovery.bean.TeamNumPhotoBean;
 import com.naruto.b_pocketnewlol.entity.NetTool;
 import com.naruto.b_pocketnewlol.entity.onHttpCallBack;
+import com.naruto.b_pocketnewlol.me.card.CardActivity;
+import com.naruto.b_pocketnewlol.me.card.MeCardBean;
+import com.naruto.b_pocketnewlol.me.card.TanTanCallback;
 import com.naruto.b_pocketnewlol.tools.UrlTools;
+import com.mcxtzhang.commonadapter.rv.CommonAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,14 +40,17 @@ import java.util.List;
 public class TeamSecondActivity extends BaseActivity {
 
     private List<TeamNumPhotoBean.MembersBean> data;
-    //    private LRecyclerView rv;
-//    private LRecyclerViewAdapter lRecyclerViewAdapter;
     private RecyclerView rv;
     private TeamPhotoAdapter adapter;
     private String id;
     private int pos;
     private TextView titleTv, nameTv;
-    private ImageView nameIv,backIv;
+    private ImageView nameIv, backIv;
+    // 卡片
+    RecyclerView cardRv;
+    CommonAdapter<TeamCardBean.ListBean> cardAdapter;
+    List<TeamCardBean.ListBean> cardData;
+    private String url = "http://qt.qq.com/php_cgi/news/php/varcache_clubnews.php?channel=news&clubid=13&page=0&plat=android&version=9713";
 
     @Override
     public int setLayout() {
@@ -52,6 +67,10 @@ public class TeamSecondActivity extends BaseActivity {
         nameTv = bindView(R.id.discovery_team_name_tv);
         nameIv = bindView(R.id.discovery_team_photo_iv);
         backIv = bindView(R.id.discovery_team_back_iv);
+        // 卡片
+        cardRv = bindView(R.id.discovery_team_rv);
+        cardData = new ArrayList<>();
+        cardRv.setLayoutManager(new OverLayCardLayoutManager());
     }
 
     @Override
@@ -59,7 +78,63 @@ public class TeamSecondActivity extends BaseActivity {
         getTeamPhoto();
         getTeamName();
         getBack();
+        getUrlData();
     }
+
+    // 解析卡片
+    private void getUrlData() {
+        NetTool.getInstance().startRequest(url, TeamCardBean.class, new onHttpCallBack<TeamCardBean>() {
+            @Override
+            public void onSuccess(TeamCardBean response) {
+                cardData = response.getList();
+                getData();
+            }
+
+
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+        });
+        // 探探上下话是不能删除的,所以只能传入做偶遇即可
+        final ItemTouchHelper.Callback callback = new TeamCallback(cardRv, cardAdapter, cardData);
+        final ItemTouchHelper itemTouchHelper = new ItemTouchHelper(callback);
+        itemTouchHelper.attachToRecyclerView(cardRv);
+    }
+
+    private void getData() {
+
+        cardRv.setAdapter(cardAdapter = new CommonAdapter<TeamCardBean.ListBean>(this, cardData, R.layout.item_team_card) {
+            public static final String TAG = "zxt/Adapter";
+
+            @Override
+            public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+                Log.d(TAG, "onCreateViewHolder() called with: parent = [" + parent + "], viewType = [" + viewType + "]");
+                return super.onCreateViewHolder(parent, viewType);
+            }
+
+            @Override
+            public void onBindViewHolder(ViewHolder holder, int position) {
+                Log.d(TAG, "onBindViewHolder() called with: holder = [" + holder + "], position = [" + position + "]");
+                super.onBindViewHolder(holder, position);
+            }
+
+            @Override
+            public void convert(ViewHolder viewHolder, TeamCardBean.ListBean listBean) {
+                viewHolder.setText(R.id.tv_title, listBean.getTitle());
+                viewHolder.setText(R.id.tv_shareDescription,listBean.getSummary());
+                Glide.with(TeamSecondActivity.this).load(listBean.getImage_url_big()).into((ImageView) viewHolder.getView(R.id.iv_imageUrl));
+            }
+
+
+
+
+
+        });
+        CardConfig.initConfig(this);
+    }
+
 
     private void getBack() {
         backIv.setOnClickListener(new View.OnClickListener() {

@@ -20,6 +20,7 @@ import com.naruto.b_pocketnewlol.base.BaseFragment;
 import com.naruto.b_pocketnewlol.discovery.MyClickListener;
 import com.naruto.b_pocketnewlol.discovery.activity.HeroSecondActivity;
 import com.naruto.b_pocketnewlol.discovery.activity.NearSecondActivity;
+import com.naruto.b_pocketnewlol.discovery.activity.PictureSecondActivity;
 import com.naruto.b_pocketnewlol.discovery.activity.PlayerSecondActivity;
 import com.naruto.b_pocketnewlol.discovery.activity.TeamSecondActivity;
 import com.naruto.b_pocketnewlol.discovery.adapter.GameAdapter;
@@ -29,6 +30,7 @@ import com.naruto.b_pocketnewlol.discovery.bean.TeamBean;
 import com.naruto.b_pocketnewlol.entity.NetTool;
 import com.naruto.b_pocketnewlol.entity.onHttpCallBack;
 import com.naruto.b_pocketnewlol.tools.UrlTools;
+import com.xys.libzxing.zxing.activity.CaptureActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,13 +40,13 @@ import java.util.List;
  */
 public class DiscoveryFragment extends BaseFragment implements View.OnClickListener, MyClickListener {
     private RecyclerView rv;
-    private ImageView heroIv,playerIv,nearIv,pkIv,barIv,timeIv,picIv;
+    private ImageView heroIv,playerIv,nearIv,pkIv,barIv,timeIv,picIv,scanIv;
     private TextView heroTv,playerTv,nearTv,pkTv,barTv,timeTv,picTv;
     private List<LogoBean.ListBean> fatherData;
     private List<List<LogoBean.ListBean>> sonData;
     private ExpandableListView expandableListView;
     private String logoUrl;
-    private LinearLayout heroLinearLayout,playerLinearLayout,nearLinearLayout;
+    private LinearLayout heroLinearLayout,playerLinearLayout,nearLinearLayout,picLinearLayout;
     private TeamAdapter teamAdapter;
     private List<TeamBean.ClubsBean> data;
 
@@ -77,6 +79,8 @@ public class DiscoveryFragment extends BaseFragment implements View.OnClickListe
         fatherData = new ArrayList<>();
         sonData = new ArrayList<>();
         teamAdapter = new TeamAdapter(getContext());
+        scanIv = bindView(R.id.discovery_barcode_iv);
+        picLinearLayout = bindView(R.id.discovery_picture_ll);
     }
 
     @Override
@@ -86,17 +90,27 @@ public class DiscoveryFragment extends BaseFragment implements View.OnClickListe
         getExpandLvData();
         getSecondIntent();
         teamAdapter.setMyClickListener(this);
-
+        getScanData();
 
 
     }
-
+// 扫码
+    private void getScanData() {
+        scanIv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), CaptureActivity.class);
+                startActivityForResult(intent,0);
+            }
+        });
+    }
 
 
     private void getSecondIntent() {
         heroLinearLayout.setOnClickListener(this);
         playerLinearLayout.setOnClickListener(this);
         nearLinearLayout.setOnClickListener(this);
+        picLinearLayout.setOnClickListener(this);
     }
 
     private void getExpandLvData() {
@@ -192,6 +206,10 @@ public class DiscoveryFragment extends BaseFragment implements View.OnClickListe
             case R.id.discovery_near_ll:
                 Intent intent2 = new Intent(getContext(), NearSecondActivity.class);
                 startActivity(intent2);
+                break;
+            case R.id.discovery_picture_ll:
+                Intent intent3 = new Intent(getContext(), PictureSecondActivity.class);
+                startActivity(intent3);
                 break;
         }
     }

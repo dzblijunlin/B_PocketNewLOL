@@ -32,6 +32,12 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+    compile project(':libzxing')
+    compile files('libs/AMap_Location_V3.2.0_20161206.jar')
+    compile files('libs/Android_Map3D_SDK_V4.1.3_20161208.jar')
+    compile files('libs/MobCommons-2016.1107.1809.jar')
+    compile project(':layoutmanager')
+    compile project(':vitamio')
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:25.1.0'
     compile 'com.google.code.gson:gson:2.2.4'
@@ -47,14 +53,7 @@ dependencies {
     compile 'com.github.jdsjlzx:LRecyclerView:1.2.8'
     compile 'com.android.support.constraint:constraint-layout:1.0.0-beta4'
     compile 'com.squareup.okhttp3:okhttp:3.5.0'
-    testCompile 'junit:junit:4.12'
     compile 'com.github.Aspsine:SwipeToLoadLayout:1.0.3'
-    compile project(':libzxing')
-    compile files('libs/AMap_Location_V3.2.0_20161206.jar')
-    compile files('libs/Android_Map3D_SDK_V4.1.3_20161208.jar')
-    compile files('libs/MobCommons-2016.1107.1809.jar')
-
-    compile project(':layoutmanager')
     compile 'com.github.mcxtzhang:all-base-adapter:V1.3.0'
-
+    testCompile 'junit:junit:4.12'
 }

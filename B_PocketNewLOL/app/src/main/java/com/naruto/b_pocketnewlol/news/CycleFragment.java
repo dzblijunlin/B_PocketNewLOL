@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class CycleFragment extends BaseFragment {
+public class CycleFragment extends BaseFragment implements MyClick {
 
     private List<CycleBean.ListBean> data;
     private CycleAdapter adapter;
@@ -55,17 +55,19 @@ public class CycleFragment extends BaseFragment {
     public void initData() {
         StartUrl(urlAll(0));
         recyclerView.setAdapter(lRecyclerViewAdapter);
-        LinearLayoutManager manager = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false);
+        LinearLayoutManager manager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(manager);
 
-        View view = LayoutInflater.from(getContext()).inflate(R.layout.item_top,null);
+        View view = LayoutInflater.from(getContext()).inflate(R.layout.item_top, null);
         RelativeLayout rlLeft = (RelativeLayout) view.findViewById(R.id.rl_one);
         RelativeLayout rlRight = (RelativeLayout) view.findViewById(R.id.rl_two);
+
+        adapter.setMyClick(this);
 
         rlLeft.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(),EventsActivity.class);
+                Intent intent = new Intent(getActivity(), EventsActivity.class);
                 startActivity(intent);
             }
         });
@@ -73,20 +75,20 @@ public class CycleFragment extends BaseFragment {
         rlRight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(),VideoActivity.class);
+                Intent intent = new Intent(getActivity(), VideoActivity.class);
                 startActivity(intent);
             }
         });
 
-        lRecyclerViewAdapter.setOnItemClickListener(new OnItemClickListener() {
-            @Override
-            public void onItemClick(View view, int i) {
-                Log.d("CycleFragment", data.get(i).getArticle_url());
-                Intent intent = new Intent(getActivity(),WebBannerActivity.class);
-                intent.putExtra("url",data.get(i).getArticle_url());
-                startActivity(intent);
-            }
-        });
+//        lRecyclerViewAdapter.setOnItemClickListener(new OnItemClickListener() {
+//            @Override
+//            public void onItemClick(View view, int i) {
+//                Log.d("CycleFragment", data.get(i).getArticle_url());
+//                Intent intent = new Intent(getActivity(),WebBannerActivity.class);
+//                intent.putExtra("url",data.get(i).getArticle_url());
+//                startActivity(intent);
+//            }
+//        });
 
         lRecyclerViewAdapter.addHeaderView(view);
 
@@ -106,6 +108,9 @@ public class CycleFragment extends BaseFragment {
             }
         });
 
+
+
+
     }
 
     private void StartUrl(String url) {
@@ -123,7 +128,7 @@ public class CycleFragment extends BaseFragment {
         });
     }
 
-    public String urlAll(int i){
+    public String urlAll(int i) {
         String url1 = getArguments().getString("url1");
         String url2 = getArguments().getString("url2");
         String url3 = getArguments().getString("url3");
@@ -131,16 +136,23 @@ public class CycleFragment extends BaseFragment {
         return url1 + url2 + url3 + i + url4;
     }
 
-    public static CycleFragment newInstance(String url1,String url2,String url3,String url4) {
+    public static CycleFragment newInstance(String url1, String url2, String url3, String url4) {
 
         Bundle args = new Bundle();
-        args.putString("url1",url1);
-        args.putString("url2",url2);
-        args.putString("url3",url3);
-        args.putString("url4",url4);
+        args.putString("url1", url1);
+        args.putString("url2", url2);
+        args.putString("url3", url3);
+        args.putString("url4", url4);
         CycleFragment fragment = new CycleFragment();
         fragment.setArguments(args);
         return fragment;
+    }
+
+    @Override
+    public void MyListener(String pos) {
+        Intent intent = new Intent(getActivity(), WebBannerActivity.class);
+        intent.putExtra("url", pos);
+        startActivity(intent);
     }
 
 }
